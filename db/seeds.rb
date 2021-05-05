@@ -21,3 +21,5 @@ puts "Product3: #{product3.name} price: #{product3.price.round(2)}"
 puts "Product4: #{product4.name} price: #{product4.price.round(2)}"
 
 Savedlist.destroy_all
+savedlist1 = Savedlist.create()
+puts "savedlist: #{savedlist1.id}"

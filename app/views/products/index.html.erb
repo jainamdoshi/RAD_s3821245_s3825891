@@ -1,7 +1,13 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<h2>All Products</h2>
+
 <% @products.each do |product| %>
-<h1><%= product.name %></h1>
-<img src="<%= product.photoURL %>"></img>
-<br></br>
-<% end %>
+  <p>Name: <%= product.name %>; unit price of <%= number_to_currency(product.price) %></p>
+  <p>
+    <%= button_to "Add #{product.name} to cart", savedlist_create_path(:product_id => product.id) %>
+    <%= link_to "Add to Saved List", savedlist_create_path, method: :post, data: {confirm: "Are you sure you want to add to savedlist?"} %> |
+    <%= link_to "Delete", product_path(product), method: :delete, data: {confirm: "Are you sure?"} %>
+    
+  </p>
+<% end%>
+
+<%= link_to "New product", new_product_path %>

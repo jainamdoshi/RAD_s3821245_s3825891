@@ -1,14 +1,20 @@
 Rails.application.routes.draw do
   root 'products#index'
   
-  get 'savedlists/:id', to: "savedlists#show"
-  get 'products/:id', to: "products#index"
+  get 'savedlists/show', to: "savedlists#show", as: "savedlist"
+  post 'savedlists/create', to: "savedlists#create", as: "savedlist_create"
+  #get 'savedlists/:id', to: "savedlists#show", as: "savedlist"
+  get 'products/index', to: "products#index"
+  get 'products/create', to: "products#create"
+  get 'products/:id', to: "products#show", as: "product"
+  
+  
   delete 'savedlists/:id', to: "savedlists#destroy"
   
   # get 'savedlists/show'
   # get 'products/index'
   # get 'products/new'
   # get 'products/edit'
-  # resources :products
+  resources :products
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

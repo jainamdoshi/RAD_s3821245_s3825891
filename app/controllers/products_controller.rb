@@ -1,9 +1,16 @@
 class ProductsController < ApplicationController
   def index
     @products = Product.all
+    # @productsPath = products_url
   end
 
   def new
+    @product = Product.new
+  end
+  
+  def create
+    # @product = Product.create(product_params)
+    redirect_to product_path(4)
   end
 
   def edit
