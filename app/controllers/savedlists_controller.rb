@@ -1,13 +1,13 @@
 class SavedlistsController < ApplicationController
   
   def show
-    @listItem = Savedlist.find(1).products
+    @listItem = Savedlist.find(@currentUserSavedlistID).products
   end
   
   def create
     
     productid = params[:product_id]
-    savedlistid = 1
+    savedlistid = @currentUserSavedlistID
     savedlist = Savedlist.find(savedlistid)
     product = Product.find(productid)
     savedlist.products << product

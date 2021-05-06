@@ -6,6 +6,18 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Category.destroy_all
+
+category1 = Category.create({:name=>"Men"})
+category2 = Category.create({:name=>"Women"})
+category3 = Category.create({:name=>"Kids"})
+category4 = Category.create({:name=>"New Arrivals"})
+
+puts "category1: #{category1.name}"
+puts "category2: #{category2.name}"
+puts "category3: #{category3.name}"
+puts "category4: #{category4.name}"
+
 Product.destroy_all
 
 product1 = Product.create({:name=>"Roadster", :price => 20, :score=>5, :photoURL=>"https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/10940528/2020/2/13/3e484090-d487-4252-9f30-beab10ce1f0a1581594832846-Roadster-Men-Tshirts-4501581594830605-1.jpg"})
@@ -20,6 +32,11 @@ puts "Product2: #{product2.name} price: #{product2.price.round(2)}"
 puts "Product3: #{product3.name} price: #{product3.price.round(2)}"
 puts "Product4: #{product4.name} price: #{product4.price.round(2)}"
 
-Savedlist.destroy_all
-savedlist1 = Savedlist.create()
-puts "savedlist: #{savedlist1.id}"
+
+product1.categories << category1
+product2.categories << category2
+product3.categories << category1
+product4.categories << category4
+
+
+

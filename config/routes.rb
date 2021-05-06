@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  
+  get 'categories/:id', to: "categories#show", as: "category"
   root 'products#index'
   
   get 'savedlists/show', to: "savedlists#show", as: "savedlist"
@@ -7,7 +9,6 @@ Rails.application.routes.draw do
   get 'products/index', to: "products#index"
   get 'products/create', to: "products#create"
   get 'products/:id', to: "products#show", as: "product"
-  
   
   delete 'savedlists/:id', to: "savedlists#destroy"
   
