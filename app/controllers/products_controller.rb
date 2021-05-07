@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   def index
     @products = Product.all
-    # @productsPath = products_url
+    
   end
 
   def new

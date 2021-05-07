@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   
+  root 'home#index'
   get 'categories/:id', to: "categories#show", as: "category"
-  root 'products#index'
+  get 'products/index', to: 'products#index'
   
   get 'savedlists/show', to: "savedlists#show", as: "savedlist"
   post 'savedlists/update', to: "savedlists#update", as: "savedlist_update"

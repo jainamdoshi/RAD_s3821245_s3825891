@@ -1,0 +1,15 @@
+<%= render "layouts/header" %>
+<section id="topBanner">
+    <div id="Banner">
+        <figure class="figure">
+          <img class="bannerImage figure-img img-fluid rounded" src="<%= @bannerProduct.photoURL %>"></img>
+          <figcaption class="figure-caption text-end">A caption for the above image.</figcaption>
+        </figure>
+        
+        
+        
+        <%= button_to "+", savedlist_update_path(:product_id => @bannerProduct.id), {class: 'btn btn-primary btn-small'} %>
+        
+    </div>
+    <div id="Banner">Popular</div>
+</section>

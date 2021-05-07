@@ -18,7 +18,7 @@ class SavedlistsController < ApplicationController
   
   def update
     savedlist = Savedlist.find(@currentUserSavedlistID)
-    product = Product.find( params[:product_id])
+    product = Product.find(params[:product_id])
     savedlist_product = savedlist.products.find_by(id: params[:product_id])
     if(savedlist_product)
       savedlist.products.delete(savedlist_product)
