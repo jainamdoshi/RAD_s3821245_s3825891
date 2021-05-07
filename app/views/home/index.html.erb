@@ -1,19 +1,21 @@
 <%= render "layouts/header" %>
 <section id="topBanner">
-    <div id="banner">
-        <img class="bannerImage img-thumbnail figure-img img-fluid rounded" src="<%= @bannerProduct.photoURL %>">
-        <div class="bannerInfo">
-            <div class="bannerInfoText">
-                <h1><%= @bannerProduct.name %></h1>
-                <h2><%= number_to_currency(@bannerProduct.price) %></h2>
+    <% if @bannerProduct %>
+        <div id="banner">
+            <img class="bannerImage img-thumbnail figure-img img-fluid rounded" src="<%= @bannerProduct.photoURL %>">
+            <div class="bannerInfo">
+                <div class="bannerInfoText">
+                    <h1><%= @bannerProduct.name %></h1>
+                    <h2><%= number_to_currency(@bannerProduct.price) %></h2>
+                </div>
+                  <%= button_to "+", savedlist_update_path(:product_id => @bannerProduct.id), {class: 'btn btn-outline-primary btn-lg'} %>
             </div>
-            <% if (!isProductInSavedlist(@bannerProduct)) %>
-              <%= button_to "+", savedlist_update_path(:product_id => @bannerProduct.id), {class: 'btn btn-outline-primary btn-lg'} %>
-            <% else %>
-              <%= button_to "-", savedlist_update_path(:product_id => @bannerProduct.id), {class: 'btn btn-outline-primary btn-lg'} %>
-            <% end %>
-            
         </div>
+    <% end %>
+    <div id="Banner">
+        <% @popularItems.each do |product| %>
+            <h1><%= product.name %></h1>
+            <h2><%= number_to_currency(product.price) %></h2>
+        <% end %>
     </div>
-    <div id="Banner">Popular</div>
 </section>
