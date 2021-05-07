@@ -4,13 +4,13 @@ Rails.application.routes.draw do
   root 'products#index'
   
   get 'savedlists/show', to: "savedlists#show", as: "savedlist"
-  post 'savedlists/create', to: "savedlists#create", as: "savedlist_create"
-  #get 'savedlists/:id', to: "savedlists#show", as: "savedlist"
+  post 'savedlists/update', to: "savedlists#update", as: "savedlist_update"
+  # get 'savedlists/:id', to: "savedlists#show", as: "savedlist"
   get 'products/index', to: "products#index"
   get 'products/create', to: "products#create"
   get 'products/:id', to: "products#show", as: "product"
   
-  delete 'savedlists/:id', to: "savedlists#destroy"
+  # delete 'savedlists/:id/', to: "savedlists#destroy" as 
   
   # get 'savedlists/show'
   # get 'products/index'

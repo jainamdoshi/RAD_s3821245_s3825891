@@ -3,10 +3,11 @@
 <% @products.each do |product| %>
   <p>Name: <%= product.name %>; unit price of <%= number_to_currency(product.price) %></p>
   <p>
-    <%= button_to "Add #{product.name} to cart", savedlist_create_path(:product_id => product.id) %>
-    <%= link_to "Add to Saved List", savedlist_create_path, method: :post, data: {confirm: "Are you sure you want to add to savedlist?"} %> |
-    <%= link_to "Delete", product_path(product), method: :delete, data: {confirm: "Are you sure?"} %>
-    
+    <% if (!isProductInSavedlist(product)) %>
+      <%= button_to "Add #{product.name} to cart", savedlist_update_path(:product_id => product.id) %>
+    <% else %>
+      <%= button_to "Delete #{product.name} to cart", savedlist_update_path(:product_id => product.id) %>
+    <% end %>
   </p>
 <% end%>
 
