@@ -27,7 +27,8 @@ class SavedlistsController < ApplicationController
     end
     
     @listItem = savedlist.products
-    redirect_to products_path
+    # redirect_to products_path
+    redirect_back(fallback_location: root_path)
   
   end
   
