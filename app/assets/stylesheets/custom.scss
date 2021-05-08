@@ -2,6 +2,13 @@
 
 header {
     
+    .navbar-collapse {
+    height: 100vh;
+  }
+  .navbar-toggle.collapsed .icon:before {
+    content: '\f00d';
+}
+    
      .sidenav {
     height: 100%; /* 100% Full-height */
     width: 0; /* 0 width - change this with JavaScript */
@@ -54,4 +61,12 @@ header {
     // .navbar-toggler {
     //     flex
     // }
+    
+  .fa {
+     &:before {
+      color: black;
+      font-size: 2rem;
+    }
+  }
+ 
 }
