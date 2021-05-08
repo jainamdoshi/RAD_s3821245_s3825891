@@ -1,7 +1,7 @@
 class SavedlistsController < ApplicationController
   
   def show
-    @listItem = Savedlist.find(@currentUserSavedlistID).products
+    @listItem = Savedlist.find(@currentUserSavedlist.id).products
   end
   
   def create
@@ -17,16 +17,16 @@ class SavedlistsController < ApplicationController
   end
   
   def update
-    savedlist = Savedlist.find(@currentUserSavedlistID)
+    # savedlist = Savedlist.find(@currentUserSavedlistID)
     product = Product.find(params[:product_id])
-    savedlist_product = savedlist.products.find_by(id: params[:product_id])
+    savedlist_product = @currentUserSavedlist.products.find_by(id: params[:product_id])
     if(savedlist_product)
-      savedlist.products.delete(savedlist_product)
+      @currentUserSavedlist.products.delete(savedlist_product)
     else
-      savedlist.products << product
+      @currentUserSavedlist.products << product
     end
     
-    @listItem = savedlist.products
+    @listItem = @currentUserSavedlist.products
     # redirect_to products_path
     redirect_back(fallback_location: root_path)
   
