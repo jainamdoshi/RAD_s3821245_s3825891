@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
   root 'home#index'
+  post 'home/newsletter', to: "home#newsletter", as: "home_newsletter"
+  
   get 'categories/:id', to: "categories#show", as: "category"
   get 'products/index', to: 'products#index'
   

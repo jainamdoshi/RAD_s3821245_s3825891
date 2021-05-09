@@ -8,7 +8,7 @@
                     <h1><%= @bannerProduct.name %></h1>
                     <h2><%= number_to_currency(@bannerProduct.price) %></h2>
                 </div>
-                  <%= button_to "+", savedlist_update_path(:product_id => @bannerProduct.id), {class: 'btn btn-outline-primary btn-lg'} %>
+                  <%= button_to "+", savedlist_update_path(:product_id => @bannerProduct.id), {class: 'btn btn-primary btn-lg'} %>
             </div>
         </div>
     <% end %>
@@ -17,5 +17,9 @@
             <h1><%= product.name %></h1>
             <h2><%= number_to_currency(product.price) %></h2>
         <% end %>
+    </div>
+    <div>
+        NewsLetter
+        <%= button_to "newsletter", home_newsletter_path(:email => "jainam.doshi2001@gmail.com"), method: :post %>
     </div>
 </section>
