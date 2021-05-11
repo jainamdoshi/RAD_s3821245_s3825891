@@ -1,9 +1,9 @@
 <%= link_to savedlist_path(item.id), method: "put" do %>
-    <div class="card" style="width: 18rem;">
+    <div class="card h-100" style="width: 18rem;">
         <img src="<%= item.photoURL %>" class="card-img-top" alt="...">
         <div class="card-body" >
-            <h2 class="card-title"><%= item.name %></h2>
-            <h3 class="card-title"><%=  number_to_currency(item.price) %></h1>
+            <h3 class="card-title"><%= item.name %></h3>
+            <h5 class="card-title"><%=  number_to_currency(item.price) %></h5>
         </div>
         <% if item.savedlists.find_by(id: @currentUserSavedlist.id) %>
             <i class="fa fa-check-circle"></i>

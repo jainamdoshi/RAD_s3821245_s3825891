@@ -1,12 +1,7 @@
+<%= render "layouts/header" %>
 <h2>All Products</h2>
-
-<% @products.each do |product| %>
-  <p>Name: <%= product.name %>; unit price of <%= number_to_currency(product.price) %></p>
-  <p>
-    <% if (!isProductInSavedlist(product)) %>
-      <%= button_to "Add #{product.name} to cart", savedlist_path(product.id), method: :put %>
-    <% else %>
-      <%= button_to "Delete #{product.name} to cart", savedlist_path(product.id), method: :put %>
-    <% end %>
-  </p>
-<% end%>
+<div class="d-flex flex-row flex-wrap justify-content-around mt-5 pt-5">
+  <% @products.each do |product| %>
+  <%= render 'products/product', item: product %> 
+  <% end%>
+</div>

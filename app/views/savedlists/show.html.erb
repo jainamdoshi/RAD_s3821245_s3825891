@@ -1,5 +1,15 @@
-<h1>Savedlists#show</h1>
-<p>Find me in app/views/savedlists/show.html.erb</p>
-<%= @listItem.size %>
-<h1><%= @listItem %></h1>
-<h2><%= @listItem %></h2> 
+<%= render "layouts/header" %>
+<h2>Saved Items</h2>
+<div class="savedlistItems d-flex flex-row flex-wrap justify-content-around  mt-5 pt-5">
+  <% @listItem.each do |item| %>
+    <%= link_to product_path(item.id), {class: 'collection-link'} do %>
+      <div class="card h-100" style="width: 18rem;">
+        <img src="<%= item.photoURL %>" class="card-img-top" alt="...">
+        <div class="card-body" >
+            <h3 class="card-title"><%= item.name %></h3>
+            <h5 class="card-title"><%=  number_to_currency(item.price) %></h5>
+        </div>
+      </div>
+    <% end %>
+  <% end%>
+</div>
