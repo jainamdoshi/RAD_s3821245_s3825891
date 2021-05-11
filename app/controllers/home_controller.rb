@@ -11,6 +11,7 @@ class HomeController < ApplicationController
     end
     
     @popularItems = Product.order('score DESC').first(10)
+    @collections = Category.all
   end
   
   def newsletter

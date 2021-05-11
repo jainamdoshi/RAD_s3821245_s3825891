@@ -18,9 +18,27 @@
             <%= link_to image_tag(product.photoURL), savedlist_update_path(:product_id => product.id), method: "post" %>
             <h1><%= product.name %></h1>
             <h2><%= number_to_currency(product.price) %></h2>
+            
+            <% if product.savedlists.find_by(id: @currentUserSavedlist.id) %>
+                <i class="fa fa-check-circle"></i>
+            <% end %>
+            
         <% end %>
     </div>
-    <div>
+    <div class="collections">
+        <% @collections.each do |collection| %>
+            <div class="card" style="width: 18rem;">
+                <% if collection.products.count > 0 %>
+                  <img src="<%= collection.products.first.photoURL %>" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title"><%= collection.name %></h5>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                <% end %>
+            </div>
+        <% end %>
+    </div>
+    <div class="newsletter">
         NewsLetter
         <% flash.each do |name, msg| %>
             <div class='alert alert-<%= name %>'>
