@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
     before_action :addingSavedlistCookies
     
+    add_flash_types :danger, :success
+    
+    
     def isProductInSavedlist(product)
       return @currentUserSavedlist.products.find_by(id: product.id) ? true : false
     end
