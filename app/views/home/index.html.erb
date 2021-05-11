@@ -27,15 +27,18 @@
     </div>
     <div class="collections">
         <% @collections.each do |collection| %>
-            <div class="card" style="width: 18rem;">
-                <% if collection.products.count > 0 %>
-                  <img src="<%= collection.products.first.photoURL %>" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title"><%= collection.name %></h5>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                <% end %>
-            </div>
+            <%= link_to category_path(collection.id), {class: 'collection-link'} do %>
+                <div class="card" style="width: 18rem;">
+                    <% if collection.products.count > 0 %>
+                        <img src="<%= collection.products.first.photoURL %>" class="card-img-top" alt="...">
+                    <% else %>
+                        <div class="card-img-top"></div>
+                    <% end %>
+                    <div class="card-body" >
+                        <h5 class="card-title"><%= collection.name %> - <%= collection.products.count%> items</h5>
+                    </div>
+                </div>
+            <% end %>
         <% end %>
     </div>
     <div class="newsletter">

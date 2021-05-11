@@ -11,6 +11,33 @@
             color: blue;
         }
     }
+    
+    .collections {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        
+        .collection-link {
+            
+            text-decoration: none;
+            color: grey;
+    
+        
+            .card {
+                margin: 1rem;
+                width: 455px !important;
+                border: none;
+                
+                .card-body {
+                    padding: 0.5rem;
+                }
+                .card-img-top {
+                    object-fit: cover;
+                    height: 700px;
+                }
+            }
+        }
+    }
 
     #banner {
         
