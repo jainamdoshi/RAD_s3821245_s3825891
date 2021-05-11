@@ -12,19 +12,16 @@
             </div>
         </div>
     <% end %>
-    <div id="popular">
+    <div id="popular" class=" pb-5 d-block">
         <h1>Popular Items</h1>
-        <% @popularItems.each do |product| %>
-            <%= link_to image_tag(product.photoURL), savedlist_path(product.id), method: "put" %>
-            <h1><%= product.name %></h1>
-            <h2><%= number_to_currency(product.price) %></h2>
-            
-            <% if product.savedlists.find_by(id: @currentUserSavedlist.id) %>
-                <i class="fa fa-check-circle"></i>
+        <div class="d-flex flex-row flex-wrap justify-content-around">
+            <% @popularItems.each do |product| %>
+                    <%= render 'products/product', item: product %> 
             <% end %>
-            
-        <% end %>
+        </div>
     </div>
+    
+    <h1 class="my-2 d-block">Collections</h1>
     <div class="collections">
         <% @collections.each do |collection| %>
             <%= link_to category_path(collection.id), {class: 'collection-link'} do %>
@@ -41,16 +38,21 @@
             <% end %>
         <% end %>
     </div>
-    <div class="newsletter">
-        NewsLetter
-        <% flash.each do |name, msg| %>
-            <div class='alert alert-<%= name %>'>
-                <%= msg %>
-            </div>
-        <% end %>
-        <%= form_with url: home_newsletter_path do |form| %>
-            <%= form.text_field :email %>
-            <%= form.submit "Send Email" %>
-        <% end %>
-    </div>
+    <section class="bg-dark text-center p-5 mt-4">
+        <div class="newsletter container p-3">
+            <h3 class="text-white">Newsletter</h3>
+            <p class="text-white">Signup with our Newsletter</p>
+            <% flash.each do |name, msg| %>
+                <div class='alert alert-<%= name %>'>
+                    <%= msg %>
+                </div>
+            <% end %>
+            <%= form_with url: home_newsletter_path do |form| %> 
+                <div class="input-group input-group-lg pt-2 d-inline">
+                <%= form.text_field :email %>
+                </div>
+                <%= form.submit "Send Email", { class: "btn btn-light btn-sm"} %>
+            <% end %>
+        </div>
+    </section>
 </section>
