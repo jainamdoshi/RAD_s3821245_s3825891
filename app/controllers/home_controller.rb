@@ -25,3 +25,7 @@ class HomeController < ApplicationController
     end
   end
 end
+
+private 
+def check_email
+end 

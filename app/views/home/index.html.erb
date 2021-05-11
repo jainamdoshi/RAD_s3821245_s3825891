@@ -8,14 +8,14 @@
                     <h1><%= @bannerProduct.name %></h1>
                     <h2><%= number_to_currency(@bannerProduct.price) %></h2>
                 </div>
-                  <%= button_to "+", savedlist_update_path(:product_id => @bannerProduct.id), {class: 'btn btn-primary btn-lg'} %>
+                  <%= button_to "+", savedlist_path(@bannerProduct.id), method: :put, :class => "btn btn-primary btn-lg" %>
             </div>
         </div>
     <% end %>
     <div id="popular">
         <h1>Popular Items</h1>
         <% @popularItems.each do |product| %>
-            <%= link_to image_tag(product.photoURL), savedlist_update_path(:product_id => product.id), method: "post" %>
+            <%= link_to image_tag(product.photoURL), savedlist_path(product.id), method: "put" %>
             <h1><%= product.name %></h1>
             <h2><%= number_to_currency(product.price) %></h2>
         <% end %>
