@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
     
-    allProducts = Product.order('score DESC')
+    allProducts = Product.order('RANDOM()')
     @bannerProduct = nil;
     allProducts.each do |product|
       if !isProductInSavedlist(product)
@@ -10,7 +10,8 @@ class HomeController < ApplicationController
       end
     end
     
-    @popularItems = allProducts.first(10)
+    @popularItems = Product.order('score DESC').first(10)
+    @collections = Category.all
   end
   
   def newsletter
