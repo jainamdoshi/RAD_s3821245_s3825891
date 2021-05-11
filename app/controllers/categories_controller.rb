@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
   def show
     
-    @cat_id = Category.find(params[:id]).name
+    @items = Category.find(params[:id]).products
     
   end
 end

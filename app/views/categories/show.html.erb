@@ -1,3 +1,5 @@
-<h1>Categories#show</h1>
-<p>Find me in app/views/categories/show.html.erb</p>
-<%= @cat_id %>
+<div class="d-flex flex-row">
+    <% @items.each do |item| %>
+        <%= render 'products/product', item: item %> 
+    <% end %>
+</div>
