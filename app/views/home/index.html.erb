@@ -21,10 +21,13 @@
         </div>
     </div>
     
-    <h1 class="my-2 d-block">Collections</h1>
+    <div class="my-2 d-flex flex-row justify-content-between mr-5 ml-5">
+        <h1>Collections</h1>
+        <%= link_to "See all", products_path, {class: "link"}  %>
+    </div>
     <div class="collections">
         <% @collections.each do |collection| %>
-            <%= link_to category_path(collection.id), {class: 'collection-link'} do %>
+            <%= link_to category_path(collection.id), {class: 'collection-link link'} do %>
                 <div class="card" style="width: 18rem;">
                     <% if collection.products.count > 0 %>
                         <img src="<%= collection.products.first.photoURL %>" class="card-img-top" alt="...">
