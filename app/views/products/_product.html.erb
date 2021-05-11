@@ -1,5 +1,5 @@
-<%= link_to savedlist_path(item.id), method: "put" do %>
-    <div class="card h-100" style="width: 18rem;">
+<%= link_to savedlist_path(item.id), method: "put", class: "link" do %>
+    <div class="card" style="width: 18rem;">
         <img src="<%= item.photoURL %>" class="card-img-top" alt="...">
         <div class="card-body" >
             <h3 class="card-title"><%= item.name %></h3>
