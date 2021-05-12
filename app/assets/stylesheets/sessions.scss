@@ -1,3 +1,50 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+html,body {
+    height: 100%;
+    background-color: #ced4da;
+}
+
+div.loginPage {
+
+    background-color: #ced4da;
+    height: 100%;
+    
+    div .closebtn {
+        font-size: 2rem;
+        color: black;
+    }
+    
+     .login {
+         
+        
+        
+        .loginForm {
+            input {
+                background-color: #ced4da;
+                border: none;
+                border-bottom: solid #adb5bd 0.5px;
+            }
+        }
+    }
+    
+    div .btn {
+        background: #212529;
+        background-image: linear-gradient(to bottom, rgba(40,40,40,0.1) 10%, rgba(50,50,50,0.3) 20%, rgba(20,20,20,1) 51%, rgba(10,10,10,0.05));
+        background-repeat: repeat-x;
+        color: white;
+    }
+    
+    div.belowLink {
+        border-top: solid #adb5bd 1px;
+        
+        .belowLinkText {
+            color: #495057;
+        }
+    }
+}
