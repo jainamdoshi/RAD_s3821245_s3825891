@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   resources :savedlists, only: [:update, :show]
   resources :products, only: [:index, :create, :show, :edit]
   resources :categories, only: [:show]
+  resources :users, only: %i[new create]
+  resource :session, only: %i[new create destroy]
   # get 'savedlists/show'
   # get 'products/index'
   # get 'products/new'

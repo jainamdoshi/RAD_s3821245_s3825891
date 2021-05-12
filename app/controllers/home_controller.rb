@@ -15,10 +15,10 @@ class HomeController < ApplicationController
   end
   
   def newsletter
-    emailRegex = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+    #emailRegex = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
     emailAddress = params[:email]
     
-    if emailAddress.match(emailRegex)
+    if emailAddress.match(@@emailRegex)
       UserNotifierMailer.send_newsletter_email(params[:email]).deliver
       redirect_to root_path, success: "Email sent"
     else
