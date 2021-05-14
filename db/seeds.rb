@@ -38,5 +38,15 @@ product2.categories << category2
 product3.categories << category1
 product4.categories << category4
 
+Stock.destroy_all
+stock1 = Stock.create({:colour=>"blue", :size=>"L", :quantity=>10})
+stock2 = Stock.create({:colour=>"pink", :size=>"L", :quantity=>5})
+stock3 = Stock.create({:colour=>"blue", :size=>"M", :quantity=>15})
 
+puts "Stock1: colour: #{stock1.colour} size: #{stock1.colour} quantity: #{stock1.quantity}"
+puts "Stock2: colour: #{stock2.colour} size: #{stock2.colour} quantity: #{stock2.quantity}"
+puts "Stock3: colour: #{stock3.colour} size: #{stock3.colour} quantity: #{stock3.quantity}"
 
+stock1.products << product1
+stock2.products << product1
+stock3.products << product1

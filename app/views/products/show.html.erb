@@ -1,4 +1,7 @@
 <h1>Products#index</h1>
 <p>Find me in app/views/products/index.html.erb</p>
 <h1><%= @productid.name %></h1>
+<h2><%= @productid.stocks.first.colour %></h2>
+<h2><%= @productid.stocks.first.size %></h2>
+<h2><%= @productid.stocks.first.quantity %></h2>
 <img src="<%= @productid.photoURL %>"></img>
