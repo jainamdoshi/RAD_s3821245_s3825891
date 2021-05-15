@@ -9,27 +9,28 @@
         <div class="col-8 col-md-12">
             <h3>Join us ... to get the best that the world of fashion can offer.</h3>
         </div>
-        <form action="/register" method='POST' class='validated-form signupForm' novalidate>
+        <% flash.each do |name, msg| %>
+                <div class='alert alert-<%= name %>'>
+                    <%= msg %>
+                </div>
+        <% end %>
+        <%= form_with model: @user , class: "signupForm" do |form| %>
             <div class='mb-3'>
-                <input class='form-control' type="text" id='username' name='username' placeholder="Name" autofocus required>
-                <div class="valid-feedback">Looks good!</div>
+                <%= form.text_field :name, class: "form-control", :placeholder => "Name", :required => true, :autofocus => true %>
             </div>
             <div class='mb-3'>
-                <input class='form-control' type="email" id='email' name='email' placeholder="Email" required>
-                <div class="valid-feedback">Looks good!</div>
+                <%= form.email_field :email, class: "form-control", :placeholder => "ex: joe@joe.com", :required => true %>
             </div>
             <div class='mb-3'>
-                <input class='form-control' type="password" id='password' name='password' placeholder="Password" required>
-                <div class="valid-feedback">Looks good!</div>
+                <%= form.password_field :password, class: "form-control", :placeholder => "Password", :required => true %>
             </div>
             <div class='mb-3'>
-                <input class='form-control' type="password" id='password' name='password' placeholder="Re-Enter Password" required>
-                <div class="valid-feedback">Looks good!</div>
+                <%= form.password_field :password, class: "form-control", :placeholder => "Password", :required => true %>
             </div>
             <div class="d-grid gap-2">
-                <button class="btn w-100">Signup</button>
+                <%= form.submit "Signup", {class: "btn w-100"} %>
             </div>
-        </form>
+        <% end %>
         <div class="belowLink d-flex d-block align-items-center justify-content-center pt-3 mt-5">
             <%= link_to "Already a User?", new_session_path, {class: 'belowLinkText'} %>
         </div>

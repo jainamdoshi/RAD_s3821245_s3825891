@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 2021_05_15_061747) do
 
   create_table "users", force: :cascade do |t|
     t.integer "savedlist_id"
+    t.integer "cart_id"
     t.string "email"
     t.string "name"
     t.datetime "created_at", null: false

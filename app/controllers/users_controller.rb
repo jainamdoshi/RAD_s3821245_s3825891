@@ -4,20 +4,23 @@ class UsersController < ApplicationController
   end
   
   def create
-    @user = Customer.new(customer_params)
+    @user = User.new(user_params)
+    puts "Reached here !!!"
     if @user.save
+      puts "Reached after if !!"
       @user.savedlist_id = @currentUserSavedlist.id
       @user.cart_id = Cart.create().id
       redirect_back fallback_location: root_path, success: 'Thank you for Signing Up!'
       # redirect_to root_path, success: "Thank you for Signing Up!"
     else
-      render 'new', error: "Invalid Username or Password! Please try again."
+      puts "Reached in else !!!"
+      redirect_to new_user_path, danger: "Invalid Username or Password! Please try again."
     end
   end
   
   
   private
-    def customer_params
-      params.require(:user).permit(:email, :password, :password_confirmation)
+    def user_params
+      params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
 end
