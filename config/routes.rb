@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  # get 'carts/show'
   root 'home#index'
   post 'home/newsletter', to: "home#newsletter", as: "home_newsletter"
   
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :create, :show, :edit]
   resources :categories, only: [:show]
   resources :users, only: %i[new create]
+  resources :carts, only: %i[show]
   resource :session, only: %i[new create destroy]
   # get 'savedlists/show'
   # get 'products/index'
