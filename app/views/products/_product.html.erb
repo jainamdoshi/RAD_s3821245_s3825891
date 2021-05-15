@@ -1,6 +1,6 @@
 <%= link_to savedlist_path(item.id), method: "put", class: "link" do %>
     <div class="card" style="width: 18rem;">
-        <img src="<%= item.photoURL %>" class="card-img-top" alt="...">
+        <img src="<%= item.ppictures.first.photoURL %>" class="card-img-top" alt="...">
         <div class="card-body" >
             <h3 class="card-title"><%= item.name %></h3>
             <h5 class="card-title"><%=  number_to_currency(item.price) %></h5>

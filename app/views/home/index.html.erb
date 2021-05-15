@@ -2,7 +2,7 @@
 <section id="topBanner">
     <% if @bannerProduct %>
         <div id="banner">
-            <img class="bannerImage img-thumbnail figure-img img-fluid rounded" src="<%= @bannerProduct.photoURL %>">
+            <img class="bannerImage img-thumbnail figure-img img-fluid rounded" src="<%= @bannerProduct.ppictures.first.photoURL %>">
             <div class="bannerInfo">
                 <div class="bannerInfoText">
                     <h1><%= @bannerProduct.name %></h1>
@@ -30,7 +30,7 @@
             <%= link_to category_path(collection.id), {class: 'collection-link link'} do %>
                 <div class="card" style="width: 18rem;">
                     <% if collection.products.count > 0 %>
-                        <img src="<%= collection.products.first.photoURL %>" class="card-img-top" alt="...">
+                        <img src="<%= collection.products.first.ppictures.first.photoURL %>" class="card-img-top" alt="...">
                     <% else %>
                         <div class="card-img-top"></div>
                     <% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_14_140744) do
+ActiveRecord::Schema.define(version: 2021_05_14_145352) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,11 +27,18 @@ ActiveRecord::Schema.define(version: 2021_05_14_140744) do
     t.index ["category_id", "product_id"], name: "index_categories_products_on_category_id_and_product_id", unique: true
   end
 
+  create_table "ppictures", force: :cascade do |t|
+    t.string "photoURL"
+    t.integer "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["photoURL"], name: "index_ppictures_on_photoURL", unique: true
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.decimal "price"
     t.integer "score"
-    t.string "photoURL"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
