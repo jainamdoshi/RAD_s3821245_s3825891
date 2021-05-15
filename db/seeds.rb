@@ -67,8 +67,27 @@ product3.stocks << stock9
 
 
 
+product4 = Product.create({:name=>"Boys Round Neck T-shirt", :price=>32.45, :score=>8})
+ppicture7 = Ppicture.create({:photoURL=>"https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/productimage/2021/4/12/3b899834-ee06-4fb3-923a-98c79d43ed8d1618199917020-1.jpg"})
+ppicture8 = Ppicture.create({:photoURL=>"https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/productimage/2021/4/12/3c3e3e71-ee97-4fc4-828f-562daa1c099a1618199917039-2.jpg"})
+ppicture9 = Ppicture.create({:photoURL=>"https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/productimage/2021/4/12/1eae8e2f-6072-47f5-951c-caa5472aa7fd1618199917060-3.jpg"})
+stock10 = Stock.create({:colour=>"Yellow", :size=>"XXL", :quantity=>10})
+stock11 = Stock.create({:colour=>"Yellow", :size=>"XL", :quantity=>50})
+stock12 = Stock.create({:colour=>"Yellow", :size=>"L", :quantity=>75})
+stock13 = Stock.create({:colour=>"Yellow", :size=>"M", :quantity=>34})
+stock14 = Stock.create({:colour=>"Yellow", :size=>"S", :quantity=>56})
+stock15 = Stock.create({:colour=>"Yellow", :size=>"XS", :quantity=>12})
+product4.categories << category3
+product4.ppictures << ppicture7
+product4.ppictures << ppicture8
+product4.ppictures << ppicture9
+product4.stocks << stock10
+product4.stocks << stock11
+product4.stocks << stock12
+product4.stocks << stock13
+product4.stocks << stock14
+product4.stocks << stock15
 
-# product4 = Product.create({:name=>"Black Polarised Sunglasses", :price=>32.45, :score=>8})
 
 # puts "Total number of products added: #{Product.all.count}"
 # puts "Product names: #{Product.all.pluck("name")}"
@@ -77,7 +96,6 @@ product3.stocks << stock9
 # puts "Product3: #{product3.name} price: #{product3.price.round(2)}"
 # puts "Product4: #{product4.name} price: #{product4.price.round(2)}"
 
-# ppicture7 = Ppicture.create({:photoURL=>"https://images-na.ssl-images-amazon.com/images/I/41cUihzGv-L._AC_SY780_.jpg"})
 # ppicture8 = Ppicture.create({:photoURL=>"https://i1.adis.ws/i/tom_ford/FT0711_01A_APPENDGRID?$listing_grid$"})
 
 # puts "Added ppictures"

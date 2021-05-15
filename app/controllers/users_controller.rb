@@ -8,7 +8,8 @@ class UsersController < ApplicationController
     if @user.save
       @user.savedlist_id = @currentUserSavedlist.id
       @user.cart_id = Cart.create().id
-      redirect_to root_path, success: "Thank you for Signing Up!"
+      redirect_back fallback_location: root_path, success: 'Thank you for Signing Up!'
+      # redirect_to root_path, success: "Thank you for Signing Up!"
     else
       render 'new', error: "Invalid Username or Password! Please try again."
     end
