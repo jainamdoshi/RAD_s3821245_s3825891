@@ -7,60 +7,92 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Category.destroy_all
+Product.destroy_all
+Ppicture.destroy_all
+Stock.destroy_all
 
 category1 = Category.create({:name=>"Men"})
 category2 = Category.create({:name=>"Women"})
 category3 = Category.create({:name=>"Kids"})
 category4 = Category.create({:name=>"New Arrivals"})
 
-puts "category1: #{category1.name}"
-puts "category2: #{category2.name}"
-puts "category3: #{category3.name}"
-puts "category4: #{category4.name}"
 
-Product.destroy_all
 
 product1 = Product.create({:name=>"Roadster", :price => 20, :score=>5})
-product2 = Product.create({:name=>"Mast & Harbour", :price => 40, :score=>8})
-product3 = Product.create({:name=>"Akatsuki Cosplay Hoodie", :price=>59.99, :score=>20})
-product4 = Product.create({:name=>"Black Polarised Sunglasses", :price=>32.45, :score=>8})
-
-puts "Total number of products added: #{Product.all.count}"
-puts "Product names: #{Product.all.pluck("name")}"
-puts "Product1: #{product1.name} price: #{product1.price.round(2)}"
-puts "Product2: #{product2.name} price: #{product2.price.round(2)}"
-puts "Product3: #{product3.name} price: #{product3.price.round(2)}"
-puts "Product4: #{product4.name} price: #{product4.price.round(2)}"
-
-Ppicture.destroy_all
 ppicture1 = Ppicture.create({:photoURL=>"https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/10940528/2020/2/13/3e484090-d487-4252-9f30-beab10ce1f0a1581594832846-Roadster-Men-Tshirts-4501581594830605-1.jpg"})
-ppicture2 = Ppicture.create({:photoURL=>"https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/11607366/2020/7/7/0934b1f4-e34e-4201-a523-f21ae3a3987c1594121242660-Mast--Harbour-Men-Green-Solid-Polo-Collar-T-shirt-5641594121-1.jpg"})
-ppicture3 = Ppicture.create({:photoURL=>"https://images-na.ssl-images-amazon.com/images/I/41cUihzGv-L._AC_SY780_.jpg"})
-ppicture4 = Ppicture.create({:photoURL=>"https://i1.adis.ws/i/tom_ford/FT0711_01A_APPENDGRID?$listing_grid$"})
 ppicture5 = Ppicture.create({:photoURL=>"https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/10940528/2020/2/13/05a5a320-4ebd-4f69-8a49-5c88311131f41581594832731-Roadster-Men-Tshirts-4501581594830605-4.jpg"})
-
-puts "Added ppictures"
-
-product1.ppictures << ppicture1
-product1.ppictures << ppicture5
-product2.ppictures << ppicture2
-product3.ppictures << ppicture3
-product4.ppictures << ppicture4
-
-product1.categories << category1
-product2.categories << category2
-product3.categories << category1
-product4.categories << category4
-
-Stock.destroy_all
 stock1 = Stock.create({:colour=>"blue", :size=>"L", :quantity=>10})
 stock2 = Stock.create({:colour=>"pink", :size=>"L", :quantity=>5})
 stock3 = Stock.create({:colour=>"blue", :size=>"M", :quantity=>15})
+product1.categories << category1
+product1.ppictures << ppicture1
+product1.ppictures << ppicture5
+product1.stocks << stock1
+product1.stocks << stock2
+product1.stocks << stock3
 
-puts "Stock1: colour: #{stock1.colour} size: #{stock1.colour} quantity: #{stock1.quantity}"
-puts "Stock2: colour: #{stock2.colour} size: #{stock2.colour} quantity: #{stock2.quantity}"
-puts "Stock3: colour: #{stock3.colour} size: #{stock3.colour} quantity: #{stock3.quantity}"
 
-stock1.products << product1
-stock2.products << product1
-stock3.products << product1
+
+product2 = Product.create({:name=>"Mast & Harbour", :price => 40, :score=>8})
+ppicture2 = Ppicture.create({:photoURL=>"https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/11607366/2020/7/7/0934b1f4-e34e-4201-a523-f21ae3a3987c1594121242660-Mast--Harbour-Men-Green-Solid-Polo-Collar-T-shirt-5641594121-1.jpg"})
+stock4 = Stock.create({:colour=>"blue", :size=>"XL", :quantity=>2})
+stock5 = Stock.create({:colour=>"black", :size=>"L", :quantity=>20})
+stock6 = Stock.create({:colour=>"red", :size=>"S", :quantity=>15})
+product2.categories << category1
+product2.categories << category4
+product2.ppictures << ppicture2
+product2.stocks << stock4
+product2.stocks << stock5
+product2.stocks << stock6
+
+
+
+product3 = Product.create({:name=>"Black Solid Tights", :price=>59.99, :score=>20})
+ppicture3 = Ppicture.create({:photoURL=>"https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/2488706/2018/7/24/6c8fec5b-2d8f-49a7-b535-747ed9ab2c781532412089657-HRX-by-Hrithik-Roshan-Women-Tights-1591532412088349-1.jpg"})
+ppicture4 = Ppicture.create({:photoURL=>"https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/2488706/2018/7/24/c8e14425-3fba-4a09-95d4-7f2e2e0964641532412089612-HRX-by-Hrithik-Roshan-Women-Tights-1591532412088349-3.jpg"})
+ppicture5 = Ppicture.create({:photoURL=>"https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/2488706/2018/7/24/9d95ea01-6945-4159-951f-433f069095571532412089590-HRX-by-Hrithik-Roshan-Women-Tights-1591532412088349-4.jpg"})
+ppicture6 = Ppicture.create({:photoURL=>"https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/2488706/2018/7/24/f49e5dbd-d5ee-4d93-b7c0-80740938b5f61532412089571-HRX-by-Hrithik-Roshan-Women-Tights-1591532412088349-5.jpg"})
+stock7 = Stock.create({:colour=>"black", :size=>"XL", :quantity=>200})
+stock8 = Stock.create({:colour=>"black", :size=>"L", :quantity=>20})
+stock9 = Stock.create({:colour=>"black", :size=>"S", :quantity=>0})
+product3.categories << category2
+product3.categories << category4
+product3.ppictures << ppicture3
+product3.ppictures << ppicture4
+product3.ppictures << ppicture5
+product3.ppictures << ppicture6
+product3.stocks << stock7
+product3.stocks << stock8
+product3.stocks << stock9
+
+
+
+
+# product4 = Product.create({:name=>"Black Polarised Sunglasses", :price=>32.45, :score=>8})
+
+# puts "Total number of products added: #{Product.all.count}"
+# puts "Product names: #{Product.all.pluck("name")}"
+# puts "Product1: #{product1.name} price: #{product1.price.round(2)}"
+# puts "Product2: #{product2.name} price: #{product2.price.round(2)}"
+# puts "Product3: #{product3.name} price: #{product3.price.round(2)}"
+# puts "Product4: #{product4.name} price: #{product4.price.round(2)}"
+
+# ppicture7 = Ppicture.create({:photoURL=>"https://images-na.ssl-images-amazon.com/images/I/41cUihzGv-L._AC_SY780_.jpg"})
+# ppicture8 = Ppicture.create({:photoURL=>"https://i1.adis.ws/i/tom_ford/FT0711_01A_APPENDGRID?$listing_grid$"})
+
+# puts "Added ppictures"
+
+# product3.ppictures << ppicture7
+# product4.ppictures << ppicture8
+
+# product3.categories << category1
+# product4.categories << category4
+
+# puts "category1: #{category1.name}"
+# puts "category2: #{category2.name}"
+# puts "category3: #{category3.name}"
+# puts "category4: #{category4.name}"
+
+# puts "Stock1: colour: #{stock1.colour} size: #{stock1.colour} quantity: #{stock1.quantity}"
+# puts "Stock2: colour: #{stock2.colour} size: #{stock2.colour} quantity: #{stock2.quantity}"
+# puts "Stock3: colour: #{stock3.colour} size: #{stock3.colour} quantity: #{stock3.quantity}"

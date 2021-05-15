@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = Customer.new(customer_params)
     if @user.save
+      @user.savedlist_id = @currentUserSavedlist.id
       redirect_to root_path, success: "Thank you for Signing Up!"
     else
       render 'new', error: "Invalid Username or Password! Please try again."

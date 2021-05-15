@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+    belongs_to :savedlist
+    belongs_to :cart
     before_save { email.downcase! }
     
     validates :email, presence: true, length: { maximum: 100 }, format: { with: @@emailRegex }, uniqueness: { case_sensitive: false }

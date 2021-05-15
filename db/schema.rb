@@ -49,27 +49,23 @@ ActiveRecord::Schema.define(version: 2021_05_14_145352) do
     t.index ["product_id", "savedlist_id"], name: "index_products_savedlists_on_product_id_and_savedlist_id", unique: true
   end
 
-  create_table "products_stocks", id: false, force: :cascade do |t|
-    t.integer "product_id", null: false
-    t.integer "stock_id", null: false
-    t.index ["product_id", "stock_id"], name: "index_products_stocks_on_product_id_and_stock_id", unique: true
-  end
-
   create_table "savedlists", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "stocks", force: :cascade do |t|
+    t.integer "product_id"
     t.string "colour"
     t.string "size"
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["colour", "size"], name: "index_stocks_on_colour_and_size", unique: true
+    t.index ["product_id", "colour", "size"], name: "index_stocks_on_product_id_and_colour_and_size", unique: true
   end
 
   create_table "users", force: :cascade do |t|
+    t.integer "savedlist_id"
     t.string "email"
     t.string "name"
     t.datetime "created_at", null: false
