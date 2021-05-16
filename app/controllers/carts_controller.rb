@@ -3,6 +3,7 @@ class CartsController < ApplicationController
   before_action :authorization, only: [:show]
   
   def show
+    @cart = Cart.find(User.find(session[:user_id]).cart_id)
   end
   
   private

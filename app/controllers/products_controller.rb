@@ -18,5 +18,13 @@ class ProductsController < ApplicationController
   
   def show
     @product = Product.find(params[:id])
+    @stock = @product.stocks.first 
+    puts "-------------------------------------------------------------------------------- #{params[:size]}"
+    @stockQuantity = Stock.find_by(stock_quantity_params).quantity
+  end
+  
+  private
+  def stock_quantity_params
+    params.require(:product).permit(:size, :colour)
   end
 end

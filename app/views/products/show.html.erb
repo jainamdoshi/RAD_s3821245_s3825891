@@ -1,7 +1,5 @@
 <%= render 'layouts/header' %>
 <div class="mt-5">
-  <div class="product-info">
-  </div>
   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -23,5 +21,22 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
+  </div>
+  <div class="product-info">
+    <%= @product.stocks.distinct.pluck(:size) %>
+    <%= form_with url: product_path(@product.id, :size, :colour), class: "form-select" do |form| %>
+      <%= form.label :size, "Size: " %>
+      <%= form.select :size, @product.stocks.distinct.pluck(:size) %>
+      <%= form.label :colour, "Colour: " %>
+      <%= form.select :colour, @product.stocks.distinct.pluck(:colour) %>
+    <% end %>
+    <%= @stock.quantity %>
+    <%= @stockQuantity %>
+    <select class="form-select" aria-label="Default select example">
+      <option selected>Open this select menu</option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </select>
   </div>
 </div>
