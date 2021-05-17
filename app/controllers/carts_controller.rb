@@ -10,6 +10,7 @@ class CartsController < ApplicationController
   
   def authorization
     if session[:user_id].blank?
+      session[:return_to] ||= request.referer
       redirect_to new_session_path
     end
   end
