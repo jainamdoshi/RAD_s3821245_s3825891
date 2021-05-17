@@ -7,6 +7,12 @@ gem 'bootstrap-sass', '3.3.7'
 
 gem 'omniauth-twitter'
 
+# group :development, :test do
+#   gem 'dotenv-rails'
+# end
+
+gem 'omniauth-rails_csrf_protection'
+
 gem 'sendgrid-ruby'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

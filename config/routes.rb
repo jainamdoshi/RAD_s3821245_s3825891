@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   post 'home/newsletter', to: "home#newsletter", as: "home_newsletter"
   
   post '/session', to: "sessions#create", as: "sessions"
+  
+  get '/auth/:provider/callback', to: 'sessions#twittercreate', as: "session_twitter"
   # get 'categories/:id', to: "categories#show", as: "category"
   # get 'products/index', to: 'products#index'
   

@@ -28,5 +28,7 @@
         <div class="belowLink d-flex d-block align-items-center justify-content-center pt-3 mt-5">
             <%= link_to "Forgot password?", new_user_path, {class: 'belowLinkText'} %>
         </div>
+        
+        <%= button_to "Twitter Login", "/auth/twitter", method: :post %>
     </div>
 </div>
