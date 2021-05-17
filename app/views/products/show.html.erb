@@ -23,15 +23,27 @@
     </button>
   </div>
   <div class="product-info">
+    
+    <% @product.stocks.each do |stock| %>
+      <h1> For Size: <%= stock.size %> and Colour <%= stock.colour %>, there are <%= stock.quantity %> items in stock</h1>
+    <% end %>
+    
+    <% flash.each do |name, msg| %>
+      <div class='alert alert-<%= name %>'>
+          <%= msg %>
+      </div>
+    <% end %>
+    
     <%= @product.stocks.distinct.pluck(:size) %>
-    <%= form_with url: product_path(@product.id), method: "get", class: "form-select" do |form| %>
+    <%= form_with url: cart_items_path(:product_id => @product.id), class: "form-select" do |form| %>
       <%= form.label :size, "Size: " %>
       <%= form.select :size, @product.stocks.distinct.pluck(:size) %>
       <%= form.label :colour, "Colour: " %>
       <%= form.select :colour, @product.stocks.distinct.pluck(:colour) %>
-      <%= form.submit "Check avaliability" %>
+      <%= form.label :itemQuantity, "How many quantity: " %>
+      <%= form.number_field :itemQuantity, min: 1 %>
+      <%= form.submit "Add items to Cart" %>
     <% end %>
-    <%= @stockQuantity %>
     <select class="form-select" aria-label="Default select example">
       <option selected>Open this select menu</option>
       <option value="1">One</option>
