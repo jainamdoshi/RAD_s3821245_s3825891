@@ -9,10 +9,11 @@ class SessionsController < ApplicationController
     if user&.authenticate(@user.password)
       session[:user_id] = user.id
       cookies[:savedlist_id] = user.savedlist_id
+      current_user
       # redirect_back fallback_location: root_path, success: 'Logged in!'
       redirect_to root_path, success: 'Logged in!'
     else
-      redirect_to :new, error: 'Email or password is invalid'
+      redirect_to new_session_path, danger: 'Email or password is invalid'
     end
   end
   

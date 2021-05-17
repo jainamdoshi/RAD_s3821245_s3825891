@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'home#index'
   post 'home/newsletter', to: "home#newsletter", as: "home_newsletter"
   
-  post '/session', to: "session#create", as: "sessions"
+  post '/session', to: "sessions#create", as: "sessions"
   # get 'categories/:id', to: "categories#show", as: "category"
   # get 'products/index', to: 'products#index'
   
