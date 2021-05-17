@@ -6,10 +6,17 @@ class SessionsController < ApplicationController
   def create
     @user = User.new(user_params)
     user = User.find_by_email(@user.email)
+    
     if user&.authenticate(@user.password)
       session[:user_id] = user.id
-      cookies[:savedlist_id] = user.savedlist_id
+      puts "ID: #{user.savedlist_id}"
+      Savedlist.find(user.savedlist_id) + Savedlist.find(cookies[:savedlist_id])
+      if cookies[:savedlist_id] != user.savedlist_id
+        cookies[:savedlist_id] = user.savedlist_id
+      end
+      
       current_user
+      
       # redirect_back fallback_location: root_path, success: 'Logged in!'
       redirect_to root_path, success: 'Logged in!'
     else

@@ -10,6 +10,13 @@ Category.destroy_all
 Product.destroy_all
 Ppicture.destroy_all
 Stock.destroy_all
+Savedlist.destroy_all
+Cart.destroy_all
+User.destroy_all
+
+savedlist1 = Savedlist.create()
+cart1 = Cart.create()
+radUser = User.create({:name=>"RAD", :email=>"rad2021rmit@gmail.com", :password=>"Rails2021", :password_confirmation=>"Rails2021", :cart_id=>cart1.id, :savedlist_id=>savedlist1.id})
 
 category1 = Category.create({:name=>"Men"})
 category2 = Category.create({:name=>"Women"})

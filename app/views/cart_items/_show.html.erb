@@ -1,0 +1,3 @@
+<li>
+    Item: <%= getProductFromStock(item.stock_id).name %>/ Price: <%= number_to_currency(getProductFromStock(item.stock_id).price) %>/ Quantity: <%= item.quantity %>/ Total Price: <%= number_to_currency(item.quantity * getProductFromStock(item.stock_id).price) %>
+</li>
