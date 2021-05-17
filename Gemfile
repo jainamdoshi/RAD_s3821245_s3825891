@@ -5,6 +5,8 @@ ruby '2.6.3'
 
 gem 'bootstrap-sass', '3.3.7'
 
+gem 'omniauth-twitter'
+
 gem 'sendgrid-ruby'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

@@ -5,11 +5,16 @@
         <% end %>
         <h1 class="text-center py-2 m-3 flex-fill">LOGIN</h1>
     </div>
+    <% flash.each do |name, msg| %>
+        <div class='alert alert-<%= name %>'>
+            <%= msg %>
+        </div>
+    <% end %>
     <div class="login mx-3  justify-content-center">
         <div class="col-8 col-md-12">
             <h3>Join us ... to get the best that the world of fashion can offer.</h3>
         </div>
-        <%= form_for @user, url: "/session", method: :post do |form| %>
+        <%= form_with model: @user, url: sessions_path do |form| %>
             <div class='mb-3'>
                 <%= form.email_field :email, class: "form-control", :placeholder => "ex: joe@joe.com", :required => true %>
             </div>

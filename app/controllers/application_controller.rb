@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+
+    
     before_action :addingSavedlistCookies
     add_flash_types :danger, :success
     
@@ -22,7 +24,8 @@ class ApplicationController < ActionController::Base
     end
     
     def current_user
-        @current_user ||= User.find_by(id: session[:user_id])
+        puts "----------Calling helper method in application record #{session[:user_id]}"
+        @current_user ||= User.find(session[:user_id])
     end
 
     def logged_in?
