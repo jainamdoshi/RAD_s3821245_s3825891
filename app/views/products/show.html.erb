@@ -30,7 +30,6 @@
       <%= form.label :colour, "Colour: " %>
       <%= form.select :colour, @product.stocks.distinct.pluck(:colour) %>
     <% end %>
-    <%= @stock.quantity %>
     <%= @stockQuantity %>
     <select class="form-select" aria-label="Default select example">
       <option selected>Open this select menu</option>
