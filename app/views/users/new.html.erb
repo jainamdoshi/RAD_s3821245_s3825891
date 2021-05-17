@@ -14,7 +14,8 @@
                     <%= msg %>
                 </div>
         <% end %>
-        <%= form_with model: @user , class: "signupForm" do |form| %>
+        <%= form_for(@user, url: users_path) do |form| %>
+            <%= render 'shared/error_messages'%>
             <div class='mb-3'>
                 <%= form.text_field :name, class: "form-control", :placeholder => "Name", :required => true, :autofocus => true %>
             </div>
@@ -22,10 +23,10 @@
                 <%= form.email_field :email, class: "form-control", :placeholder => "ex: joe@joe.com", :required => true %>
             </div>
             <div class='mb-3'>
-                <%= form.password_field :password, class: "form-control", :placeholder => "Password", :required => true %>
+                <%= form.password_field :password, class: "form-control", :placeholder => "Password - it should be 8-20 characters long, should not contain special chararacters", :required => true %>
             </div>
             <div class='mb-3'>
-                <%= form.password_field :password, class: "form-control", :placeholder => "Password", :required => true %>
+                <%= form.password_field :password, class: "form-control", :placeholder => "Confirm-Password", :required => true %>
             </div>
             <div class="d-grid gap-2">
                 <%= form.submit "Signup", {class: "btn w-100"} %>
