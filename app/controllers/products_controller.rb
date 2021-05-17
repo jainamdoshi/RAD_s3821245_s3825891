@@ -38,6 +38,7 @@ class ProductsController < ApplicationController
       @stockQuantity = @product.stocks.first.quantity
     end
     puts "-------------------------------------------------------------------------------- #{params}"
+    puts @stockQuantity
   end
   
   # def quan
