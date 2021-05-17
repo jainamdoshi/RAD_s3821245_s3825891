@@ -1,4 +1,9 @@
 <%= render "layouts/header" %>
+<% flash.each do |name, msg| %>
+    <div class='alert alert-<%= name %>'>
+        <%= msg %>
+    </div>
+<% end %>
 <section id="topBanner">
     <% if @bannerProduct %>
         <div id="banner">
@@ -45,11 +50,7 @@
         <div class="newsletter container p-3">
             <h3 class="text-white">Newsletter</h3>
             <p class="text-white">Signup with our Newsletter</p>
-            <% flash.each do |name, msg| %>
-                <div class='alert alert-<%= name %>'>
-                    <%= msg %>
-                </div>
-            <% end %>
+            
             <%= form_with url: home_newsletter_path do |form| %> 
                 <div class="input-group input-group-lg pt-2 d-inline">
                 <%= form.text_field :email %>

@@ -16,6 +16,10 @@ class CartItemsController < ApplicationController
         end
     end
     
+    def destroy
+        puts "destroy"
+    end
+    
     private
     def authorization
         if session[:user_id].blank?
@@ -24,7 +28,6 @@ class CartItemsController < ApplicationController
             cart = User.find_by(:id => session[:user_id]).cart_id
             if cart.present?
                 @current_cart = Cart.find_by(:id => cart)
-                puts "adfjasjdfkasdf#{@current_cart}"
             end
         end
     end
