@@ -1,0 +1,41 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+.filterPage {
+  padding: 0 2rem;
+}
+
+div .closebtn {
+        font-size: 4rem;
+        color: black;
+  }
+
+.heading {
+  padding-left: 18rem;
+  font-size: 4rem;
+}
+
+h1.sub-heading {
+  font-size: 5rem;
+}
+
+.form {
+  .btn-check {
+    display: none;  
+  }
+  
+  .collection-box {
+    width: 100%;
+  }
+  
+  .btn {
+    font-size: 3rem;
+    margin: 1rem;
+  }
+  
+  .d-block .btn {
+    width: 100%;
+  }
+}
