@@ -28,9 +28,9 @@ category4 = Category.create({:name=>"New Arrivals"})
 product1 = Product.create({:name=>"Roadster", :price => 20, :score=>5})
 ppicture1 = Ppicture.create({:photoURL=>"https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/10940528/2020/2/13/3e484090-d487-4252-9f30-beab10ce1f0a1581594832846-Roadster-Men-Tshirts-4501581594830605-1.jpg"})
 ppicture5 = Ppicture.create({:photoURL=>"https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/10940528/2020/2/13/05a5a320-4ebd-4f69-8a49-5c88311131f41581594832731-Roadster-Men-Tshirts-4501581594830605-4.jpg"})
-stock1 = Stock.create({:colour=>"blue", :size=>"L", :quantity=>10})
-stock2 = Stock.create({:colour=>"pink", :size=>"L", :quantity=>5})
-stock3 = Stock.create({:colour=>"blue", :size=>"M", :quantity=>15})
+stock1 = Stock.create({:colour=>"Blue", :size=>"L", :quantity=>10})
+stock2 = Stock.create({:colour=>"Pink", :size=>"L", :quantity=>5})
+stock3 = Stock.create({:colour=>"Blue", :size=>"M", :quantity=>15})
 product1.categories << category1
 product1.ppictures << ppicture1
 product1.ppictures << ppicture5
@@ -42,9 +42,9 @@ product1.stocks << stock3
 
 product2 = Product.create({:name=>"Mast & Harbour", :price => 40, :score=>8})
 ppicture2 = Ppicture.create({:photoURL=>"https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/11607366/2020/7/7/0934b1f4-e34e-4201-a523-f21ae3a3987c1594121242660-Mast--Harbour-Men-Green-Solid-Polo-Collar-T-shirt-5641594121-1.jpg"})
-stock4 = Stock.create({:colour=>"blue", :size=>"XL", :quantity=>2})
-stock5 = Stock.create({:colour=>"black", :size=>"L", :quantity=>20})
-stock6 = Stock.create({:colour=>"red", :size=>"S", :quantity=>15})
+stock4 = Stock.create({:colour=>"Blue", :size=>"XL", :quantity=>2})
+stock5 = Stock.create({:colour=>"Black", :size=>"L", :quantity=>20})
+stock6 = Stock.create({:colour=>"Red", :size=>"S", :quantity=>15})
 product2.categories << category1
 product2.categories << category4
 product2.ppictures << ppicture2
@@ -59,9 +59,9 @@ ppicture3 = Ppicture.create({:photoURL=>"https://assets.myntassets.com/h_1440,q_
 ppicture4 = Ppicture.create({:photoURL=>"https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/2488706/2018/7/24/c8e14425-3fba-4a09-95d4-7f2e2e0964641532412089612-HRX-by-Hrithik-Roshan-Women-Tights-1591532412088349-3.jpg"})
 ppicture5 = Ppicture.create({:photoURL=>"https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/2488706/2018/7/24/9d95ea01-6945-4159-951f-433f069095571532412089590-HRX-by-Hrithik-Roshan-Women-Tights-1591532412088349-4.jpg"})
 ppicture6 = Ppicture.create({:photoURL=>"https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/2488706/2018/7/24/f49e5dbd-d5ee-4d93-b7c0-80740938b5f61532412089571-HRX-by-Hrithik-Roshan-Women-Tights-1591532412088349-5.jpg"})
-stock7 = Stock.create({:colour=>"black", :size=>"XL", :quantity=>200})
-stock8 = Stock.create({:colour=>"black", :size=>"L", :quantity=>20})
-stock9 = Stock.create({:colour=>"black", :size=>"S", :quantity=>0})
+stock7 = Stock.create({:colour=>"Black", :size=>"XL", :quantity=>200})
+stock8 = Stock.create({:colour=>"Black", :size=>"L", :quantity=>20})
+stock9 = Stock.create({:colour=>"Black", :size=>"S", :quantity=>0})
 product3.categories << category2
 product3.categories << category4
 product3.ppictures << ppicture3

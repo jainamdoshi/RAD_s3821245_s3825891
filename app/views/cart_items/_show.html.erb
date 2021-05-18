@@ -1,3 +1,9 @@
-<li>
-    Item: <%= getProductFromStock(item.stock_id).name %>/ Price: <%= number_to_currency(getProductFromStock(item.stock_id).price) %>/ Quantity: <%= item.quantity %>/ Total Price: <%= number_to_currency(item.quantity * getProductFromStock(item.stock_id).price) %>
+<li class="lineItem">
+    <div class="card" style="width: 18rem;">
+        <img src="<%= getProductFromStock(item.stock_id).ppictures.first.photoURL %>" class="card-img-top" alt="...">
+        <div class="card-body" >
+            <h3 class="card-title"><%= getProductFromStock(item.stock_id).name %></h3>
+            <h5 class="card-title"><%= number_to_currency(getProductFromStock(item.stock_id).price) %> x <%= item.quantity %> = <%= number_to_currency(item.quantity * getProductFromStock(item.stock_id).price) %></h5>
+        </div>
+    </div>
 </li>
