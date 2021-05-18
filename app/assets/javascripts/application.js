@@ -23,10 +23,7 @@
 
 function checkButton(classname)
 {
-    console.log(`This method has been called ${classname[0].name}`);
     var chkBoxs = document.getElementById(classname[0].name);
-    console.log(chkBoxs);
-    // chkBoxs.forEach(checkEachButton)
         if (chkBoxs.checked){
             if(classname[0].name == "all"){
                 var labels = document.getElementsByClassName("col-btn-label");
@@ -56,7 +53,6 @@ function checkButton(classname)
 function toggleState(label,state){
      if (state){
             label.className = "btn btn-secondary col-btn-label";
-            // console.log(chkBoxs);
         }
         else
             label.className = "btn btn-outline-secondary col-btn-label";
