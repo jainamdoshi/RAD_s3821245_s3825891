@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   # get 'products/:id', to: "products#show", as: "product"
   
   # delete 'savedlists/:id/', to: "savedlists#destroy" as 
-  resources :savedlists, only: [:update, :show]
+  resources :savedlists, only: [:show, :update]
   resources :products, only: [:index, :create, :show, :edit]
   resources :categories, only: [:show]
   resources :users, only: %i[new create]
