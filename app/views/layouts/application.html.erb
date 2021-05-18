@@ -15,9 +15,9 @@
 
   <body>
     
-    <%= render 'layouts/header' %>
+    <%= render 'layouts/header' unless defined?(@disablePartial) != nil%>
     <%= yield %>
-    <%= render 'layouts/footer' %>
+    <%= render 'layouts/footer' unless defined?(@disablePartial) != nil%>
     <script>
       $('.sidebar-toggle').click(function(){
          $('#sidebar').removeClass('hidden-xs');            
