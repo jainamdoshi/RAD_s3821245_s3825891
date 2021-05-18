@@ -1,5 +1,4 @@
-<%= render "layouts/header" %>
-<div class="d-flex flex-row justify-content-around pt-5 mt-5">
+<div class="d-flex flex-row justify-content-around pt-5">
     <% @items.each do |item| %>
         <%= render 'products/product', item: item %> 
     <% end %>

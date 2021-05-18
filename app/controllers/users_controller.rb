@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  
+  before_action :authorization, only: [:show]
+  
   def new
     @user = User.new
   end
@@ -21,9 +24,23 @@ class UsersController < ApplicationController
     end
   end
   
+  def show
+  end
+  
   
   private
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    end
+    
+    def authorization
+      if session[:user_id].blank?
+        redirect_to new_session_path
+      else
+        cart = User.find_by(:id => session[:user_id]).cart_id
+        if cart.present?
+          @current_cart = Cart.find_by(:id => cart)
+        end
+      end
     end
 end

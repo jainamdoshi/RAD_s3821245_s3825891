@@ -105,7 +105,6 @@ header {
     margin: 0;
     padding: 0;
     height: 10vh;
-    font-size: 4.5rem;
     list-style-type: none;
     width: 100%;
     
@@ -115,7 +114,18 @@ header {
       width: 100%;
       border: solid grey;
       
+      .link {
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        
+        .option-icon {
+          font-size: 5rem;
+        }
+        .option-title {
+          font-size: 3.5rem;
+        }
+      }
     }
   }
-  
 }

@@ -14,7 +14,10 @@
  </head>
 
   <body>
+    
+    <%= render 'layouts/header' %>
     <%= yield %>
+    <%= render 'layouts/footer' %>
     <script>
       $('.sidebar-toggle').click(function(){
          $('#sidebar').removeClass('hidden-xs');            
