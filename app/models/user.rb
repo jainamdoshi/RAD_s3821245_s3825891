@@ -10,8 +10,9 @@ class User < ApplicationRecord
     has_secure_password
     
     def self.find_or_create_from_auth_hash(auth_hash)
+        puts "------------#{auth_hash.credentials.secret[0..19]}-------------------"
         user = User.new({:name => auth_hash.info.name, :email => "#{auth_hash.uid}@gmail.com", 
-        :password => auth_hash.credentials.secret, :password_confirmation => auth_hash.credentials.secret})
+        :password => auth_hash.credentials.secret[0..19], :password_confirmation => auth_hash.credentials.secret[0..19]})
         
         user
         #user = where(provider: auth_hash.provider, uid: auth_hash.uid).first_or_create
