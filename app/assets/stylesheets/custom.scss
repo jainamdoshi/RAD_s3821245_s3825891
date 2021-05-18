@@ -83,9 +83,39 @@ header {
 .link {
   text-decoration: none;
   color: grey;
+  outline: none;
+  border: none;
+  background-color: white;
+  margin: 20px 0;
   
   &:hover {
     text-decoration: none;
     color: black;
   }
+}
+
+.footer {
+  padding: 0;
+  background-color: grey;
+  position: fixed;
+  width: 100vw;
+  bottom: 0;
+  
+  .footer-options {
+    margin: 0;
+    padding: 0;
+    height: 10vh;
+    font-size: 4.5rem;
+    list-style-type: none;
+    width: 100%;
+    
+    .option {
+      flex-grow: 4;
+      height: 100%;
+      width: 100%;
+      border: solid grey;
+      
+    }
+  }
+  
 }

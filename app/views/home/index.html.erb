@@ -13,7 +13,7 @@
                     <h1><%= @bannerProduct.name %></h1>
                     <h2><%= number_to_currency(@bannerProduct.price) %></h2>
                 </div>
-                  <%= button_to "+", savedlist_path(@bannerProduct.id), method: :put, :class => "btn btn-primary btn-lg" %>
+                  <%= button_to "+", savedlist_path(@currentUserSavedlist.id, product_id: @bannerProduct.id), method: :put, :class => "btn btn-primary btn-lg" %>
             </div>
         </div>
     <% end %>
@@ -46,8 +46,8 @@
             <% end %>
         <% end %>
     </div>
-    <section class="bg-dark text-center p-5 mt-4">
-        <div class="newsletter container p-3">
+    <section class="bg-dark text-center py-3 pb-5 mt-4">
+        <div class="newsletter container p-5">
             <h3 class="text-white">Newsletter</h3>
             <p class="text-white">Signup with our Newsletter</p>
             
@@ -60,3 +60,4 @@
         </div>
     </section>
 </section>
+<%= render "layouts/footer" %>
