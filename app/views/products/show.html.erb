@@ -33,7 +33,6 @@
       <h1> For Size: <%= stock.size %> and Colour <%= stock.colour %>, there are <%= stock.quantity %> items in stock</h1>
     <% end %>
     
-    <%= @product.stocks.distinct.pluck(:size) %>
     <%= form_with url: cart_items_path(:product_id => @product.id), class: "form-select" do |form| %>
       <%= form.label :size, "Size: " %>
       <%= form.select :size, @product.stocks.distinct.pluck(:size) %>
