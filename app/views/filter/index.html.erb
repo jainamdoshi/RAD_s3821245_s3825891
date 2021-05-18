@@ -1,0 +1,43 @@
+<div class="filterPage">
+    <div class="d-flex flex-row mb-4 head">
+        <%= link_to root_path, {class: 'align-self-center'} do %>
+            <i class="fa fa-times closebtn" aria-hidden="true"></i>
+        <% end %>
+        <h1 class="py-2 m-3 flex-fill heading">Filters</h1>
+    </div>
+    <%= form_with url: filter_update_path, method: :post, class: "form-select form" do |form| %>
+    <div class="collections">
+        <h1 class="sub-heading">Collections</h1>
+        <div class="d-flex flex-wrap flex-row justify-content-center collection-box">
+            <% @collectionTags.each do |tag| %>
+            <%= form.check_box tag, :autocomplete => "off", class: "btn-check col-btn", :onchange => "checkButton(#{tag})" %>
+            <%= form.label tag, tag, class: "btn btn-outline-secondary col-btn-label collections-input-label", name: tag %>
+            <% end %>
+        </div>
+    </div>
+    <hr></hr>
+    <div class="colors">
+        <h1 class="sub-heading">Colors</h1>
+        <div class="d-flex flex-wrap flex-row justify-content-center collection-box">
+            <% @colorTags.each do |tag| %>
+            <%= form.check_box tag, :autocomplete => "off", class: "btn-check color-btn", :onchange => "checkButton(#{tag})" %>
+            <%= form.label tag, tag, class: "btn btn-outline-secondary color-btn-label", name: tag %>
+            <% end %>
+        </div>
+    </div>
+    <hr></hr>
+    <div class="sizes">
+        <h1 class="sub-heading">Sizes</h1>
+        <div class="d-flex flex-wrap flex-row justify-content-center collection-box">
+            <% @sizeTags.each do |tag| %>
+            <%= form.check_box tag, :autocomplete => "off", class: "btn-check size-btn", :onchange => "checkButton(#{tag})" %>
+            <%= form.label tag, tag, class: "btn btn-outline-secondary size-btn-label", name: tag %>
+            <% end %>
+        </div>
+    </div>
+    <div class="d-block">
+        <%= button_to "save filters",filter_update_path, class: "btn btn-secondary" %>
+    </div>
+    
+    <% end %>
+</div>

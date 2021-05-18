@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'filter/index', to: "filter#index"
+  post 'filter/update', to: "filter#update"
   # get 'carts/show'
   root 'home#index'
   post 'home/newsletter', to: "home#newsletter", as: "home_newsletter"

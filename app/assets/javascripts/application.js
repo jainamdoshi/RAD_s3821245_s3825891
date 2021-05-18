@@ -21,3 +21,39 @@
 //= require_tree .
 
 
+function checkButton(classname)
+{
+    var chkBoxs = document.getElementById(classname[0].name);
+        if (chkBoxs.checked){
+            if(classname[0].name == "all"){
+                var labels = document.getElementsByClassName("col-btn-label");
+                var checkboxes = document.getElementsByClassName("col-btn");
+                for(let i = 0 ; i < labels.length ; i++){
+                    checkboxes[i].checked = true;
+                    toggleState(labels[i],true);
+                }
+            }
+            else
+                document.getElementsByName(classname[0].name)[2].className = "btn btn-secondary col-btn-label";
+        }
+        else{
+            if(classname[0].name == "all"){
+                var labels = document.getElementsByClassName("col-btn-label");
+                var checkboxes = document.getElementsByClassName("col-btn");
+                for(let i = 0;i < checkboxes.length;i++){
+                    checkboxes[i].checked = false;
+                    toggleState(labels[i],false);
+                }
+            }
+            else
+                document.getElementsByName(classname[0].name)[2].className = "btn btn-outline-secondary col-btn-label";
+        }
+}
+
+function toggleState(label,state){
+     if (state){
+            label.className = "btn btn-secondary col-btn-label";
+        }
+        else
+            label.className = "btn btn-outline-secondary col-btn-label";
+}
