@@ -1,4 +1,4 @@
-<%= link_to savedlist_path(item.id), method: "put", class: "link" do %>
+<%= link_to savedlist_path(@currentUserSavedlist.id, product_id: item.id), method: :patch, class: "link" do %>
     <div class="card" style="width: 18rem;">
         <img src="<%= item.ppictures.first.photoURL %>" class="card-img-top" alt="...">
         <div class="card-body" >
