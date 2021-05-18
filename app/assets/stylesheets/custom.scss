@@ -1,11 +1,23 @@
 header {
     
+    .title {
+      font-size: 4rem;
+    }
+    
+    .navbar-nav {
+      .nav-link {
+         font-size: 4rem; 
+      }
+    }
+    
+    
     .navbar-collapse {
-    height: 100vh;
-  }
-  .navbar-toggle.collapsed .icon:before {
-    content: '\f00d';
-}
+      height: 50vh;
+    }
+    
+    .navbar-toggle.collapsed .icon:before {
+      content: '\f00d';
+    }
     
      .sidenav {
     height: 100%; /* 100% Full-height */
@@ -63,7 +75,7 @@ header {
   .fa {
      &:before {
       color: black;
-      font-size: 2rem;
+      font-size: 3rem;
     }
   }
 }

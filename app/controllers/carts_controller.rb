@@ -11,7 +11,9 @@
       cart.cart_items.each do |cart_item|
         stock = Stock.find(cart_item.stock_id)
         stock.quantity -= cart_item.quantity
+        product = Product.find(stock.product_id).score += quantity
         stock.save
+        product.save
         cart_item.delete
       end
       redirect_to root_path, success: "You have checked-out. Your items will arrive soon!"

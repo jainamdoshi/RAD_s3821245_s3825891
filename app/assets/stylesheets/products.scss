@@ -1,3 +1,16 @@
 // Place all the styles related to the Products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.popular-items .savedlistItems {
+        max-height: 620px;
+    
+    .card {
+        width: 300px !important;
+        
+        .card-title {
+            font-size: 1.75rem;
+        }
+    }    
+}

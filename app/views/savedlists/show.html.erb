@@ -1,5 +1,5 @@
 <h2>Saved Items</h2>
-<div class="savedlistItems d-flex flex-row flex-wrap justify-content-around  mt-5 pt-5">
+<div class="savedlistItems d-flex flex-row flex-wrap justify-content-around mt-5 pt-5">
   <% @listItem.each do |item| %>
     <%= link_to product_path(item.id), {class: 'collection-link link'} do %>
       <div class="card h-100" style="width: 18rem;">

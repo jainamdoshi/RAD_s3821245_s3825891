@@ -22,9 +22,12 @@ class SavedlistsController < ApplicationController
     savedlist_product = @currentUserSavedlist.products.find_by(id: params[:product_id])
     if(savedlist_product)
       @currentUserSavedlist.products.delete(savedlist_product)
+      product.score -= 1
     else
       @currentUserSavedlist.products << product
+      product.score += 1
     end
+    product.save
     
     @listItem = @currentUserSavedlist.products
     # redirect_to products_path

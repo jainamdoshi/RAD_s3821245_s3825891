@@ -17,7 +17,7 @@
         </div>
     <% end %>
     <div id="popular" class=" pb-5 d-block">
-        <h1>Popular Items</h1>
+        <h1 class="section-title">Popular Items</h1>
         <div class="d-flex flex-row flex-wrap justify-content-around">
             <% @popularItems.each do |product| %>
                     <%= render 'products/product', item: product %> 
@@ -25,9 +25,9 @@
         </div>
     </div>
     
-    <div class="my-2 d-flex flex-row justify-content-between mr-5 ml-5">
-        <h1>Collections</h1>
-        <%= link_to "See all", products_path, {class: "link"}  %>
+    <div class="my-2 d-flex flex-row justify-content-between mr-5 ml-5  align-items-center">
+        <h1 class="section-title">Collections</h1>
+        <%= link_to "See all", products_path, {class: "link section-title"}  %>
     </div>
     <div class="collections">
         <% @collections.each do |collection| %>
@@ -45,16 +45,16 @@
             <% end %>
         <% end %>
     </div>
-    <section class="bg-dark text-center py-3 pb-5 mt-4">
-        <div class="newsletter container p-5">
+    <section class="newsletter-wrapper bg-dark text-center pt-3 mt-4">
+        <div class="newsletter p-5">
             <h3 class="text-white">Newsletter</h3>
             <p class="text-white">Signup with our Newsletter</p>
             
-            <%= form_with url: home_newsletter_path do |form| %> 
-                <div class="input-group input-group-lg pt-2 d-inline">
-                <%= form.text_field :email %>
+            <%= form_with url: home_newsletter_path, class: "d-flex flex-row justify-content-center" do |form| %> 
+                <div class="input-group input-group-lg pt-2 d-flex flex-row justify-content-around">
+                    <%= form.text_field :email, class: "text-field" %>
+                    <%= form.submit "Send Email", { class: "btn btn-light btn-sm"} %>
                 </div>
-                <%= form.submit "Send Email", { class: "btn btn-light btn-sm"} %>
             <% end %>
         </div>
     </section>
