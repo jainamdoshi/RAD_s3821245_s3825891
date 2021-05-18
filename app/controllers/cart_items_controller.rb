@@ -10,7 +10,7 @@ class CartItemsController < ApplicationController
                 cart = @current_cart
                 cart.cart_items << cart_item
             end
-            redirect_to product_path(params[:product_id]), success: "Added #{params[:itemQuantity]} item(s) of size: #{params[:size]} and colour #{params[:colour]}"
+            redirect_to product_path(params[:product_id]), success: "Added #{params[:itemQuantity]} item(s) of size: #{params[:size]} and Colour: #{params[:colour]}"
         else
             redirect_to product_path(params[:product_id]), danger: "Not enough item(s) of size: #{params[:size]} and colour #{params[:colour]}"
         end

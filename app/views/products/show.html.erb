@@ -1,5 +1,10 @@
 <%= render 'layouts/header' %>
 <div class="mt-5">
+  <% flash.each do |name, msg| %>
+      <div class='alert alert-<%= name %>'>
+          <%= msg %>
+      </div>
+    <% end %>
   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <% @product.ppictures.each_with_index do |photo, index| %>
@@ -26,12 +31,6 @@
     
     <% @product.stocks.each do |stock| %>
       <h1> For Size: <%= stock.size %> and Colour <%= stock.colour %>, there are <%= stock.quantity %> items in stock</h1>
-    <% end %>
-    
-    <% flash.each do |name, msg| %>
-      <div class='alert alert-<%= name %>'>
-          <%= msg %>
-      </div>
     <% end %>
     
     <%= @product.stocks.distinct.pluck(:size) %>
