@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: RAD-Assignment_production
-  username: RAD-Assignment
-  password: <%= ENV['RAD-ASSIGNMENT_DATABASE_PASSWORD'] %>
+  database: <%= ENV['DATABASE_URL'] %>
+  # username: RAD-Assignment
+  # password: <%= ENV['RAD-ASSIGNMENT_DATABASE_PASSWORD'] %>

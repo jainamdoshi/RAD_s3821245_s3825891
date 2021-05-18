@@ -6,9 +6,9 @@ class SessionsController < ApplicationController
   def create
     @user = User.new(user_params)
     user = User.find_by_email(@user.email)
-    if user&.authenticate(@user.password)
+    if user && user.authenticate(@user.password)
       session[:user_id] = user.id
-      
+      puts "---------------#{user.id}---#{user.name}----"
       # Method call
       savedlist_merge(@user)
       current_user
