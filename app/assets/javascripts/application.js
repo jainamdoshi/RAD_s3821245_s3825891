@@ -28,7 +28,7 @@ function checkButton(classname)
             if(classname[0].name == "all"){
                 var labels = document.getElementsByClassName("col-btn-label");
                 var checkboxes = document.getElementsByClassName("col-btn");
-                for(let i = 0;i < labels.length;i ++){
+                for(let i = 0 ; i < labels.length ; i++){
                     checkboxes[i].checked = true;
                     toggleState(labels[i],true);
                 }
