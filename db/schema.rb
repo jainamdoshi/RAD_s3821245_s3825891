@@ -34,12 +34,6 @@ ActiveRecord::Schema.define(version: 2021_05_19_185406) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "carts_cart_items", id: false, force: :cascade do |t|
-    t.integer "cart_id", null: false
-    t.integer "cart_item_id", null: false
-    t.index ["cart_id", "cart_item_id"], name: "index_carts_cart_items_on_cart_id_and_cart_item_id", unique: true
-  end
-
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
