@@ -1,0 +1,28 @@
+<div class="main-body">
+    <div class="profile-banner d-flex flex-column justify-content-around pl-5">
+        <%= gravatar_for @user %>
+        <h1 class="user-name"><%= @user.name %></h1>
+    </div>
+    <div class="user-options pt-5">
+        <ul>
+            <li>
+                <%= link_to cart_path(@user.cart_id), class: "link d-flex flex-row" do %>
+                    <%= fa_icon "hourglass-half" %>
+                    <h1>Pending orders</h1>
+                <% end %>
+            </li>
+            <li>
+                <%= link_to cart_path(@user.cart_id), class: "link d-flex flex-row" do %>
+                    <%= fa_icon "user-plus" %>
+                    <h1>Update login details</h1>
+                <% end %>
+            </li>
+            <li>
+                <%= link_to cart_path(@user.cart_id), class: "link d-flex flex-row" do %>
+                    <%= fa_icon "envelope" %>
+                    <h1>Subscription</h1>
+                <% end %>
+            </li>
+        </ul>
+    </div>
+</div>

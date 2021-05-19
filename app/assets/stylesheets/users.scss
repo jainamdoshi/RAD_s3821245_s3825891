@@ -31,3 +31,37 @@ div.signupPage {
         }
     }
 }
+
+.profile-banner {
+    height: 35vh;
+    background-color: grey;
+    
+    .gravatar {
+        height: 15rem;
+        width: 15rem;
+    }
+    
+    .user-name {
+        font-size: 7rem;
+    }
+}
+
+.user-options {
+    
+    ul {
+        list-style: none;
+        
+        li {
+            padding: 2rem 0;
+            i {
+                font-size: 7rem;
+            }
+            
+            h1 {
+                margin-left: 2rem;
+                font-size: 5rem;
+            }
+        }
+    }
+    
+}

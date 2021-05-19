@@ -23,7 +23,7 @@
         </ul>
       </div>
       <div>
-        <%= link_to cart_path(current_user ? current_user.id : 0) do %>
+        <%= link_to cart_path(current_user ? current_user.cart_id : 0) do %>
           <i class="fa fa-shopping-bag p-2" aria-hidden="true"></i>
         <% end %>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav2" aria-controls="navbarNav2" aria-expanded="false" aria-label="Toggle navigation">
