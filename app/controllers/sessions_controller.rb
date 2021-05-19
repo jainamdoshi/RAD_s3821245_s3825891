@@ -11,8 +11,12 @@ class SessionsController < ApplicationController
       # Method call
       savedlist_merge(user)
       current_user
-    
-      redirect_to root_path, success: 'Logged in!'
+      if session[:return_to].blank?
+        redirect_to root_path, success: 'Logged In!'
+      else
+        redirect_to session.delete(:return_to), success: 'Logged In!'
+      end
+      
     else
       redirect_to new_session_path, danger: 'Email or password is invalid'
     end
@@ -20,7 +24,6 @@ class SessionsController < ApplicationController
   
   def destroy
     session.delete(:user_id)
-    redirect_to root_path, success: 'Logged out!'
   end
   
   def twittercreate
@@ -37,6 +40,14 @@ class SessionsController < ApplicationController
     savedlist_merge(@user)
     current_user
     redirect_to root_path, success: "Successfully Logged In!"
+  end
+  
+  def self.sweep(time = 1.minute)
+        if time.is_a?(String)
+          time = time.split.inject { |count, unit| count.to_i.send(unit) }
+        end
+
+        where("updated_at < ?", time.ago.to_s(:db)).delete_all
   end
   
   protected

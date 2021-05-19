@@ -8,12 +8,18 @@
 
 div.loginPage {
     
+    background-color: #ced4da;
+    height: 100vh;
+    
+    .login {
+        height: 80vh;
+    }
+    
     h3 {
         font-size: 5rem;
     }
 
-    background-color: #ced4da;
-    height: 100vh;
+    
     
     div .closebtn {
         font-size: 2rem;
@@ -31,12 +37,14 @@ div.loginPage {
     div.belowLink {
         border-top: solid #adb5bd 1px;
         
-        .belowLinkText {
+        .belowLinkText, h2 {
+            font-size: 2rem;
             color: #495057;
         }
     }
     
-    .inputField {
+    .form-control {
+        font-size: 1.5rem;
         height: 4rem;
     }
     
