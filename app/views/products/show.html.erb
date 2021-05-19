@@ -1,51 +1,58 @@
-<div>
+<div class="main-body">
   <% flash.each do |name, msg| %>
       <div class='alert alert-<%= name %>'>
           <%= msg %>
       </div>
     <% end %>
-  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <% @product.ppictures.each_with_index do |photo, index| %>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%= index %>" class="active" aria-current="true" aria-label="Slide <%= index + 1 %>"></button>
-      <% end %>
+  <div class="product-carousel">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <% @product.ppictures.each_with_index do |photo, index| %>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%= index %>" class="<%= "active" if index == 0 %>" aria-current="true" aria-label="Slide <%= index + 1 %>"></button>
+        <% end %>
+      </div>
+      <div class="carousel-inner">
+        <% @product.ppictures.each_with_index do |picture, index| %>
+          <div class="carousel-item <%= "active" if index == 0 %>">
+            <img src="<%= picture.photoURL %>" class="d-block w-100" alt="...">
+          </div>
+        <% end %>
+      </div>
+      
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <%= fa_icon "chevron-left", 'aria-hidden' => true %>
+      </button>
+      
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <%= fa_icon "chevron-right", 'aria-hidden' => true %>
+      </button>
+      
     </div>
-    <div class="carousel-inner">
-      <% @product.ppictures.each_with_index do |picture, index| %>
-        <div class="carousel-item <%= "active" if index == 0 %>">
-          <img src="<%= picture.photoURL %>" class="d-block w-100" alt="...">
-        </div>
-      <% end %>
-     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
   </div>
+  
   <div class="product-info">
-    
     <% @product.stocks.each do |stock| %>
       <h1> For Size: <%= stock.size %> and Colour <%= stock.colour %>, there are <%= stock.quantity %> items in stock</h1>
     <% end %>
     
-    <%= form_with url: cart_items_path(:product_id => @product.id), class: "form-select" do |form| %>
-      <%= form.label :size, "Size: " %>
-      <%= form.select :size, @product.stocks.distinct.pluck(:size) %>
-      <%= form.label :colour, "Colour: " %>
-      <%= form.select :colour, @product.stocks.distinct.pluck(:colour) %>
-      <%= form.label :itemQuantity, "How many quantity: " %>
-      <%= form.number_field :itemQuantity, min: 1 %>
-      <%= form.submit "Add items to Cart" %>
+    <%= form_with url: cart_items_path(:product_id => @product.id), class: "form-select d-flex flex-column justify-content-center" do |form| %>
+      <div class="form-options mt-5 d-flex flex-row justify-content-around">
+        <div class="form-size">
+          <%= form.label :size, "Size: " %>
+          <%= form.select :size, @product.stocks.distinct.pluck(:size) %>
+        </div>
+        <div class="form-colour">
+          <%= form.label :colour, "Colour: " %>
+          <%= form.select :colour, @product.stocks.distinct.pluck(:colour) %>
+        </div>
+      </div>
+      <div class="d-flex flex-row justify-content-center p-5">
+        <%= form.label :itemQuantity, "How many quantity: ", class: "ask-quantity" %>
+        <%= form.number_field :itemQuantity, min: 1 %>
+      </div>
+      <div class="d-flex flex-row justify-content-center">
+        <%= form.submit "Add items to Cart", class: "btn btn-primary" %>
+      </div>
     <% end %>
-    <select class="form-select" aria-label="Default select example">
-      <option selected>Open this select menu</option>
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
-    </select>
   </div>
 </div>

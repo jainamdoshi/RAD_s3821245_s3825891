@@ -2,21 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .savedlistItems {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
+    padding-bottom: 12rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+    .card {
+        margin: 1rem;
+        width: 455px !important;
+        border: none;
         
-            .card {
-                margin: 1rem;
-                width: 455px !important;
-                border: none;
-                
-                .card-body {
-                    padding: 0.5rem;
-                }
-                .card-img-top {
-                    object-fit: cover;
-                    height: 700px;
-                }
-            }
+        .card-body {
+            padding: 0.5rem;
         }
+        .card-img-top {
+            object-fit: cover;
+            height: 700px;
+        }
+    }
+}

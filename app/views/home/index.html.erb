@@ -1,9 +1,9 @@
-<% flash.each do |name, msg| %>
-    <div class='alert alert-<%= name %>'>
-        <%= msg %>
-    </div>
-<% end %>
 <section id="topBanner">
+    <% flash.each do |name, msg| %>
+        <div class='alert alert-<%= name %>'>
+            <%= msg %>
+        </div>
+    <% end %>
     <% if @bannerProduct %>
         <div id="banner">
             <img class="bannerImage img-thumbnail figure-img img-fluid rounded" src="<%= @bannerProduct.ppictures.first.photoURL %>">
