@@ -12,12 +12,14 @@ class UsersController < ApplicationController
       @user.savedlist_id = @currentUserSavedlist.id
       @user.cart_id = Cart.create().id
       @user.save
-      # session[:user_id] = @user.id
-      # redirect_back fallback_location: root_path, success: 'Thank you for Signing Up!'
-      if(session[:return_to])
-        redirect_to session.delete(:return_to), success: "Thank you for Signing Up!"
+      session[:user_id] = user.id
+      
+      current_user
+      
+      if session[:return_to].blank?
+        redirect_to root_path, success: "Thank you for Signing Up!"
       else
-        redirect_to new_session_path, success: "Thank you for Signing Up!"
+        redirect_to session.delete(:return_to), success: "Thank you for Signing Up!"
       end
     else
       redirect_to new_user_path, danger: "Invalid Username or Password! Please try again."

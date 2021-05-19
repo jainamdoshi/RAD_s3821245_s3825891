@@ -8,6 +8,10 @@
 
 div.loginPage {
     
+    .login {
+        height: 80vh;
+    }
+    
     h3 {
         font-size: 5rem;
     }
@@ -31,12 +35,14 @@ div.loginPage {
     div.belowLink {
         border-top: solid #adb5bd 1px;
         
-        .belowLinkText {
+        .belowLinkText, h2 {
+            font-size: 2rem;
             color: #495057;
         }
     }
     
     .inputField {
+        font-size: 2rem;
         height: 4rem;
     }
     
