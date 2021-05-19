@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # get 'carts/show'
   root 'home#index'
   post 'home/newsletter', to: "home#newsletter", as: "home_newsletter"
+  put 'home/newsletterupdate', to: "home#newsletterupdate", as: "home_newsletter_update"
   
   post '/session', to: "sessions#create", as: "sessions"
   

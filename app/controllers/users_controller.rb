@@ -26,6 +26,8 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @newsletterTurnedOn = Newsletter.find_by(email: @user.email)
+    
   end
   
   

@@ -18,9 +18,15 @@
                 <% end %>
             </li>
             <li>
-                <%= link_to cart_path(@user.cart_id), class: "link d-flex flex-row" do %>
+                <%= button_to home_newsletter_update_path, method: :put, class: "link d-flex flex-row" do %>
                     <%= fa_icon "envelope" %>
-                    <h1>Subscription</h1>
+                    <h1>Turn <%= @newsletterTurnedOn ? "off" : "on" %> Subscription</h1>
+                <% end %>
+            </li>
+            <li>
+                <%= button_to session_path, method: :delete, class: "link d-flex flex-row" do %>
+                    <%= fa_icon "sign-out" %>
+                    <h1>Logout</h1>
                 <% end %>
             </li>
         </ul>

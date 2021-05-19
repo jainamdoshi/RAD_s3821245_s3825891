@@ -20,13 +20,23 @@ class HomeController < ApplicationController
     
     if emailAddress.match(emailRegex)
       UserNotifierMailer.send_newsletter_email(params[:email]).deliver
+      letter = Newsletter.new(email: emailAddress)
+      letter.save
       redirect_to root_path, success: "Email sent"
     else
       redirect_to root_path, danger: "Invalid Email"
     end
   end
+  
+  def newsletterupdate
+    
+    if Newsletter.find_by(email: current_user.email)
+      Newsletter.delete(Newsletter.find_by(email: current_user.email).id)
+    else
+      Newsletter.create(email: current_user.email)
+    end
+    redirect_to user_path(current_user)
+  end
+  
+  
 end
-
-private 
-def check_email
-end 
