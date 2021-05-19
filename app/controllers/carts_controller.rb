@@ -3,7 +3,7 @@
     before_action :authorization, only: [:show]
   
     def show
-      @cart = @current_cart
+      @cart = Cart.find(params[:id])
     end
     
     def update
@@ -11,9 +11,7 @@
       cart.cart_items.each do |cart_item|
         stock = Stock.find(cart_item.stock_id)
         stock.quantity -= cart_item.quantity
-        product = Product.find(stock.product_id).score += quantity
         stock.save
-        product.save
         cart_item.delete
       end
       redirect_to root_path, success: "You have checked-out. Your items will arrive soon!"
@@ -24,9 +22,8 @@
       if session[:user_id].blank?
         redirect_to new_session_path
       else
-        cart = User.find_by(:id => session[:user_id]).cart_id
-        if cart.present?
-          @current_cart = Cart.find_by(:id => cart)
+        if current_user().cart_id != params[:id].to_i
+          redirect_to cart_path(current_user().cart_id)
         end
       end
     end

@@ -12,5 +12,4 @@
   <% end %>
   <h3>Sub total: <%= number_to_currency(totalPrice(@cart)) %></h3>
   <%= link_to "Checkout", cart_path(@cart.id), method: "put", class: "link" %><br>
-  # <%= link_to "Empty cart", cart_path(@current_cart),method: :delete, data: {confirm: "Are you sure?"} %>
 </div>

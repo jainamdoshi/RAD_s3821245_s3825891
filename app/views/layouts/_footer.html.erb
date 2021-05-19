@@ -19,7 +19,8 @@
             <% end %>
         </li>
         <li class="option d-flex justify-content-around align-items-center">
-            <%= link_to user_path(@current_user ? @current_user.id : 0), class: "link d-flex flex-column justify-content-center align-items-center" do %>
+
+            <%= link_to user_path(current_user ? current_user.id : 0), class: "link d-flex flex-column justify-content-center align-items-center" do %>
                 <%= fa_icon "user", class: "option-icon" %>
                 <p class="option-title">Account</p>
             <% end %>

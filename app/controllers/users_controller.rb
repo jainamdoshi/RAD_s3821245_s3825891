@@ -37,9 +37,8 @@ class UsersController < ApplicationController
       if session[:user_id].blank?
         redirect_to new_session_path
       else
-        cart = User.find_by(:id => session[:user_id]).cart_id
-        if cart.present?
-          @current_cart = Cart.find_by(:id => cart)
+        if current_user().id != params[:id].to_i
+          redirect_to user_path(current_user().id)
         end
       end
     end
