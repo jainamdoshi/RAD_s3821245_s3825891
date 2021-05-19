@@ -16,10 +16,10 @@
         </div>
         <%= form_with model: @user, url: sessions_path do |form| %>
             <div class='mb-3 '>
-                <%= form.email_field :email, class: "form-control inputField p-2", :placeholder => "ex: joe@joe.com", :required => true %>
+                <%= form.email_field :email, class: "form-control p-2", :placeholder => "ex: joe@joe.com", :required => true %>
             </div>
             <div class='mb-3 '>
-                <%= form.password_field :password, class: "form-control inputField p-2", :placeholder => "Password", :required => true %>
+                <%= form.password_field :password, class: "form-control p-2", :placeholder => "Password", :required => true %>
             </div>
             <div class="d-grid gap-2">
                 <%= form.submit "Login", {class: "btn w-100 submitBtn"} %>
@@ -33,7 +33,5 @@
             <h2>|</h2>
             <%= link_to "Not a User, Signup here?", new_user_path, {class: 'belowLinkText pl-3'} %>
         </div>
-        
-        
     </div>
 </div>

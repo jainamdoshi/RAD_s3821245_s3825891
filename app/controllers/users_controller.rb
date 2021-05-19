@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       @user.savedlist_id = @currentUserSavedlist.id
       @user.cart_id = Cart.create().id
       @user.save
-      session[:user_id] = user.id
+      session[:user_id] = @user.id
       
       current_user
       
