@@ -22,13 +22,16 @@
                 <%= form.password_field :password, class: "form-control inputField", :placeholder => "Password", :required => true %>
             </div>
             <div class="d-grid gap-2">
-                <%= form.submit "Login", {class: "btn w-100"} %>
+                <%= form.submit "Login", {class: "btn w-100 submitBtn"} %>
             </div>
         <% end %>
+        <div class="d-grid gap-2">
+            <%= button_to "Twitter Login", "/auth/twitter", method: :post, class: "twitterBtn btn btn-primary mt-3" %>
+        </div>
         <div class="belowLink d-flex d-block align-items-center justify-content-center pt-3 mt-5">
             <%= link_to "Forgot password?", new_user_path, {class: 'belowLinkText'} %>
         </div>
         
-        <%= button_to "Twitter Login", "/auth/twitter", method: :post %>
+        
     </div>
 </div>
