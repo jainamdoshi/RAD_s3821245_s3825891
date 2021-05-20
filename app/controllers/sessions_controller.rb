@@ -11,11 +11,14 @@ class SessionsController < ApplicationController
       # Method call
       savedlist_merge(user)
       current_user
-      if session[:return_to].blank?
-        redirect_to root_path, success: 'Logged In!'
-      else
-        redirect_to session.delete(:return_to), success: 'Logged In!'
-      end
+      if !session[:pending_items].blank?
+        params = session.delete(:pending_items)
+        add_items_to_cart(params[:product_id], params[:size], params[:colour], params[:itemQuantity])
+      end  
+      redirect_to root_path, success: 'Logged In!'
+      # else
+      #   redirect_to session.delete(:return_to), success: 'Logged In!'
+      
       
     else
       redirect_to new_session_path, danger: 'Email or password is invalid'
