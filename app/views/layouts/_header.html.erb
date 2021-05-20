@@ -23,6 +23,11 @@
         </ul>
       </div>
       <div>
+        <% if defined?(@filterOption) != nil %>
+          <%= link_to filter_index_path do %>
+            <i class="fa fa-filter p-2" aria-hidden="true"></i>
+          <% end %>
+        <% end %>
         <%= link_to cart_path(current_user ? current_user.cart_id : 0) do %>
           <i class="fa fa-shopping-bag p-2" aria-hidden="true"></i>
         <% end %>

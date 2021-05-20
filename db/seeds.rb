@@ -13,6 +13,7 @@ Stock.destroy_all
 Savedlist.destroy_all
 Cart.destroy_all
 User.destroy_all
+ProductTag.destroy_all
 
 savedlist1 = Savedlist.create()
 cart1 = Cart.create()
@@ -23,7 +24,12 @@ category2 = Category.create({:name=>"Women"})
 category3 = Category.create({:name=>"Kids"})
 category4 = Category.create({:name=>"New Arrivals"})
 
-
+product_tag1 = ProductTag.create({:tag=>"Outdoor"})
+product_tag2 = ProductTag.create({:tag=>"T-shirt"})
+product_tag3 = ProductTag.create({:tag=>"Workout"})
+product_tag4 = ProductTag.create({:tag=>"Formal"})
+product_tag5 = ProductTag.create({:tag=>"Casual"})
+product_tag6 = ProductTag.create({:tag=>"Jeans"})
 
 product1 = Product.create({:name=>"Roadster", :price => 20, :score=>5})
 ppicture1 = Ppicture.create({:photoURL=>"https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/10940528/2020/2/13/3e484090-d487-4252-9f30-beab10ce1f0a1581594832846-Roadster-Men-Tshirts-4501581594830605-1.jpg"})
@@ -38,7 +44,9 @@ product1.stocks << stock1
 product1.stocks << stock2
 product1.stocks << stock3
 
-
+product1.product_tags << product_tag1
+product1.product_tags << product_tag2
+product1.product_tags << product_tag5
 
 product2 = Product.create({:name=>"Mast & Harbour", :price => 40, :score=>8})
 ppicture2 = Ppicture.create({:photoURL=>"https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/11607366/2020/7/7/0934b1f4-e34e-4201-a523-f21ae3a3987c1594121242660-Mast--Harbour-Men-Green-Solid-Polo-Collar-T-shirt-5641594121-1.jpg"})
@@ -52,7 +60,9 @@ product2.stocks << stock4
 product2.stocks << stock5
 product2.stocks << stock6
 
-
+product2.product_tags << product_tag1
+product2.product_tags << product_tag2
+product2.product_tags << product_tag4
 
 product3 = Product.create({:name=>"Black Solid Tights", :price=>59.99, :score=>20})
 ppicture3 = Ppicture.create({:photoURL=>"https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/2488706/2018/7/24/6c8fec5b-2d8f-49a7-b535-747ed9ab2c781532412089657-HRX-by-Hrithik-Roshan-Women-Tights-1591532412088349-1.jpg"})
@@ -72,7 +82,8 @@ product3.stocks << stock7
 product3.stocks << stock8
 product3.stocks << stock9
 
-
+product3.product_tags << product_tag1
+product3.product_tags << product_tag3
 
 product4 = Product.create({:name=>"Boys Round Neck T-shirt", :price=>32.45, :score=>8})
 ppicture7 = Ppicture.create({:photoURL=>"https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/productimage/2021/4/12/3b899834-ee06-4fb3-923a-98c79d43ed8d1618199917020-1.jpg"})
@@ -96,6 +107,12 @@ product4.stocks << stock14
 product4.stocks << stock15
 
 
+product4.product_tags << product_tag1
+product4.product_tags << product_tag2
+product4.product_tags << product_tag3
+product4.product_tags << product_tag4
+product4.product_tags << product_tag5
+product4.product_tags << product_tag6
 # puts "Total number of products added: #{Product.all.count}"
 # puts "Product names: #{Product.all.pluck("name")}"
 # puts "Product1: #{product1.name} price: #{product1.price.round(2)}"
