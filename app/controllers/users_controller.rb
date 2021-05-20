@@ -1,9 +1,8 @@
 class UsersController < ApplicationController
   
-  before_action :authorization, only: [:show]
+  before_action :authorization, only: %i[show edit]
   
   def new
-    @user = User.new
   end
   
   def create
@@ -14,7 +13,7 @@ class UsersController < ApplicationController
       @user.save
       session[:user_id] = @user.id
       
-      current_user
+      # current_user
       
       if session[:return_to].blank?
         redirect_to root_path, success: "Thank you for Signing Up!"
@@ -29,7 +28,22 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @newsletterTurnedOn = Newsletter.find_by(email: @user.email)
+  end
+  
+  def edit
+  end
+  
+  def update
+    user = current_user
+    user.password = params[:newPassword]
+    user.password_confirmation = params[:newPasswordConfirmation]
     
+    if user.valid?
+      user.save
+      redirect_to user_path(user), success: "Password Changed Successfully"
+    else
+      redirect_to edit_user_path(user.id), danger: "Passwords do no match"
+    end
   end
   
   

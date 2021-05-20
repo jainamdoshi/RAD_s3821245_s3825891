@@ -3,6 +3,11 @@
         <%= gravatar_for @user %>
         <h1 class="user-name"><%= @user.name %></h1>
     </div>
+    <% flash.each do |name, msg| %>
+        <div class='alert alert-<%= name %>'>
+            <%= msg %>
+        </div>
+    <% end %>
     <div class="user-options pt-5">
         <ul>
             <li>
@@ -12,7 +17,7 @@
                 <% end %>
             </li>
             <li>
-                <%= link_to cart_path(@user.cart_id), class: "link d-flex flex-row" do %>
+                <%= link_to edit_user_path(@user.cart_id), class: "link d-flex flex-row" do %>
                     <%= fa_icon "user-plus" %>
                     <h1>Update login details</h1>
                 <% end %>
