@@ -35,8 +35,16 @@ class UsersController < ApplicationController
   
   def update
     user = current_user
-    user.password = params[:newPassword]
-    user.password_confirmation = params[:newPasswordConfirmation]
+    
+    if !params[:newEmail].blank?
+      user.email = params[:newEmail]
+    end
+    
+    
+    if !params[:newPassword].blank?
+      user.password = params[:newPassword]
+      user.password_confirmation = params[:newPasswordConfirmation]
+    end
     
     if user.valid?
       user.save
