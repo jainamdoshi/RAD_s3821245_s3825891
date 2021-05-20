@@ -12,8 +12,8 @@ class SessionsController < ApplicationController
       savedlist_merge(user)
       current_user
       if !session[:pending_items].blank?
-        params = session.delete(:pending_items)
-        add_items_to_cart(params[:product_id], params[:size], params[:colour], params[:itemQuantity])
+        pending = session.delete(:pending_items)
+        add_items_to_cart(pending["product_id"], pending["size"], pending["colour"], pending["itemQuantity"])
       end  
       redirect_to root_path, success: 'Logged In!'
       # else

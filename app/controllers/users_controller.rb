@@ -40,7 +40,6 @@ class UsersController < ApplicationController
       user.email = params[:newEmail]
     end
     
-    
     if !params[:newPassword].blank?
       user.password = params[:newPassword]
       user.password_confirmation = params[:newPasswordConfirmation]
