@@ -42,7 +42,7 @@ class UsersController < ApplicationController
       user.save
       redirect_to user_path(user), success: "Password Changed Successfully"
     else
-      redirect_to edit_user_path(user.id), danger: "Passwords do no match"
+      redirect_to edit_user_path(user.id), danger: "Passwords do no match!"
     end
   end
   
