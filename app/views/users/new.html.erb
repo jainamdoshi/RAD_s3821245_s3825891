@@ -10,12 +10,11 @@
             <h3>Join us ... to get the best that the world of fashion can offer.</h3>
         </div>
         <% flash.each do |name, msg| %>
-                <div class='alert alert-<%= name %>'>
-                    <%= msg %>
-                </div>
+            <div class='alert alert-<%= name %>'>
+                <%= msg %>
+            </div>
         <% end %>
         <%= form_with model: @user, url: users_path do |form| %>
-            <%= render 'shared/error_messages'%>
             <div class='mb-3'>
                 <%= form.text_field :name, class: "form-control p-2", :placeholder => "Name", :required => true, :autofocus => true %>
             </div>
