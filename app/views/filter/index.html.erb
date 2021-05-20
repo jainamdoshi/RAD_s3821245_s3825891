@@ -30,8 +30,8 @@
         <h1 class="sub-heading">Sizes</h1>
         <div class="d-flex flex-wrap flex-row justify-content-center collection-box">
             <% @sizeTags.each do |tag| %>
-            <%= form.radio_button tag, :autocomplete => "off", class: "btn-check size-btn" %>
-            <%= form.label tag, tag, class: "btn btn-outline-secondary size-btn-label", name: tag %>
+            <%= form.radio_button :size, tag, :autocomplete => "off", class: "btn-check size-btn" %>
+            <%= form.label :size, tag, class: "btn btn-outline-secondary size-btn-label", name: tag %>
             <% end %>
         </div>
     </div>

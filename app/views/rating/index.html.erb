@@ -1,0 +1,30 @@
+<div class="rating-page">
+    <div class="d-flex rating-box flex-column flex-wrap align-items-center p-4">
+        <h3>rate us</h3>
+        <h1>Rate your experience with this app...</h1>
+        <%= form_with url: rating_create_path, class: "d-flex flex-row flex-wrap" do |form| %>
+                
+                    <%= form.radio_button :rate, "SO BAD", class: "btn-check" do %>
+                    <div class="col p-5">
+                        <%= form.label :rate, class: "btn btn-outline-secondary" %>
+                    </div>
+                    <% end %>
+                    
+                <div class="col p-5">
+                    <%= form.label :rate, "OKAY", class: "btn btn-outline-secondary" %>
+                    <%= form.radio_button :rate, "OKAY", class: "btn-check" %>
+                </div>
+                <div class="col p-5">
+                    <%= form.label :rate, "GOOD", class: "btn btn-outline-secondary" %>
+                    <%= form.radio_button :rate, "GOOD", class: "btn-check" %>
+                </div>
+                <div class="col p-5">
+                    <%= form.label :rate, "AMAZING", class: "btn btn-outline-secondary" %>
+                    <%= form.radio_button :rate, "AMAZING", class: "btn-check" %>
+                </div>
+                <div class="d-block">
+                    <%= form.button "Submit", class: "btn btn-secondary" %>
+                </div>
+        <% end %>
+    </div>
+</div>

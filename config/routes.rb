@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  get 'rating/index', to: "rating#index"
+  post 'rating/create', to: "rating#create"
+  
   get 'filter/index', to: "filter#index"
   post 'filter/update', to: "filter#update"
   # get 'carts/show'
