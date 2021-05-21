@@ -13,8 +13,7 @@ class UsersController < ApplicationController
       @user.cart_id = Cart.create().id
       @user.save
       session[:user_id] = @user.id
-      
-      # current_user
+      current_user
       redirect_to root_path, success: "Thank you for Signing Up!"
     else
       redirect_to new_user_path, danger: "Invalid Username or Password! Please try again."
