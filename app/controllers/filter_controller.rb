@@ -18,8 +18,8 @@ class FilterController < ApplicationController
     puts "-------------Reached Into Update-----------"
     # session[:filte
     filters = []
+    puts " #{params}"
     params.each { |key,value| filters.append(key) if value == "1" }
-    puts " #{filters}"
     session[:filters] = filters
     redirect_to session.delete(:return_to)
   end

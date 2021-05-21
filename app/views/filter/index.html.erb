@@ -10,8 +10,8 @@
         <h1 class="sub-heading">Collections</h1>
         <div class="d-flex flex-wrap flex-row justify-content-center collection-box">
             <% @collectionTags.each do |tag| %>
-            <%= form.check_box tag, :autocomplete => "off", class: "btn-check col-btn", :onchange => "checkButton(#{tag})" %>
-            <%= form.label tag, tag, class: "btn btn-outline-secondary col-btn-label collections-input-label", name: tag %>
+            <%= form.check_box "COL#{tag}", :autocomplete => "off", class: "btn-check col-btn", :onchange => "checkButton(#{tag})" %>
+            <%= form.label "COL#{tag}", tag, class: "btn btn-outline-secondary col-btn-label collections-input-label", name: tag %>
             <% end %>
         </div>
     </div>
@@ -20,8 +20,8 @@
         <h1 class="sub-heading">Colors</h1>
         <div class="d-flex flex-wrap flex-row justify-content-center collection-box">
             <% @colourTags.each do |tag| %>
-            <%= form.check_box tag, :autocomplete => "off", class: "btn-check color-btn", :onchange => "checkButton(#{tag})" %>
-            <%= form.label tag, tag, class: "btn btn-outline-secondary color-btn-label", name: tag %>
+            <%= form.check_box "CLR#{tag}", :autocomplete => "off", class: "btn-check color-btn", :onchange => "checkButton(#{tag})" %>
+            <%= form.label "CLR#{tag}", tag, class: "btn btn-outline-secondary color-btn-label", name: tag %>
             <% end %>
         </div>
     </div>
@@ -30,8 +30,8 @@
         <h1 class="sub-heading">Sizes</h1>
         <div class="d-flex flex-wrap flex-row justify-content-center collection-box">
             <% @sizeTags.each do |tag| %>
-            <%= form.radio_button :size, tag, :autocomplete => "off", class: "btn-check size-btn" %>
-            <%= form.label :size, tag, class: "btn btn-outline-secondary size-btn-label", name: tag %>
+            <%= form.radio_button "SZE#{tag}", tag, :autocomplete => "off", class: "btn-check size-btn" %>
+            <%= form.label tag, tag, class: "btn btn-outline-secondary size-btn-label", name: tag %>
             <% end %>
         </div>
     </div>
