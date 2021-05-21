@@ -69,6 +69,7 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     session[:user_id] = user.id
     savedlist_merge(user)
+    redirect_to root_path, success: "Successfully! Logged in"
   end
   
   private
