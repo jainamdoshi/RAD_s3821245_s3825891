@@ -19,7 +19,7 @@ class FilterController < ApplicationController
     # session[:filte
     filters = []
     puts " #{params}"
-    params.each { |key,value| filters.append(key) if value == "1" }
+    params.each { |key,value| filters.append(key) if value == "1"; filters.append("SIZ#{value}") if key == "size"}
     session[:filters] = filters
     redirect_to session.delete(:return_to)
   end

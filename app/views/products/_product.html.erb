@@ -6,7 +6,7 @@
             <h5 class="card-title"><%=  number_to_currency(item.price) %></h5>
         </div>
         <% if item.savedlists.find_by(id: @currentUserSavedlist.id) %>
-            <i class="fa fa-check-circle"></i>
+            <i class="fa fa-star"></i>
         <% end %>
     </div>
 <% end %>
