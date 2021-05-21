@@ -30,6 +30,7 @@ product_tag3 = ProductTag.create({:tag=>"Workout"})
 product_tag4 = ProductTag.create({:tag=>"Formal"})
 product_tag5 = ProductTag.create({:tag=>"Casual"})
 product_tag6 = ProductTag.create({:tag=>"Jeans"})
+product_tag7 = ProductTag.create({:tag=>"Footwear"})
 
 product1 = Product.create({:name=>"Roadster", :price => 20, :score=>5})
 ppicture1 = Ppicture.create({:photoURL=>"https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/10940528/2020/2/13/3e484090-d487-4252-9f30-beab10ce1f0a1581594832846-Roadster-Men-Tshirts-4501581594830605-1.jpg"})
@@ -43,7 +44,6 @@ product1.ppictures << ppicture5
 product1.stocks << stock1
 product1.stocks << stock2
 product1.stocks << stock3
-
 product1.product_tags << product_tag1
 product1.product_tags << product_tag2
 product1.product_tags << product_tag5
@@ -59,7 +59,6 @@ product2.ppictures << ppicture2
 product2.stocks << stock4
 product2.stocks << stock5
 product2.stocks << stock6
-
 product2.product_tags << product_tag1
 product2.product_tags << product_tag2
 product2.product_tags << product_tag4
@@ -81,7 +80,6 @@ product3.ppictures << ppicture6
 product3.stocks << stock7
 product3.stocks << stock8
 product3.stocks << stock9
-
 product3.product_tags << product_tag1
 product3.product_tags << product_tag3
 
@@ -105,14 +103,61 @@ product4.stocks << stock12
 product4.stocks << stock13
 product4.stocks << stock14
 product4.stocks << stock15
-
-
 product4.product_tags << product_tag1
 product4.product_tags << product_tag2
 product4.product_tags << product_tag3
 product4.product_tags << product_tag4
 product4.product_tags << product_tag5
 product4.product_tags << product_tag6
+
+
+product5 = Product.create({:name=>"LocoMotive Snekers", :price=>69.99, :score=>24})
+ppicture10 = Ppicture.create({:photoURL=>"https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/9785495/2019/6/14/906f1f81-db79-481b-9962-6306abe4a1bf1560500752934-LOCOMOTIVE-Men-Grey-Sneakers-5091560500751016-1.jpg"})
+ppicture11 = Ppicture.create({:photoURL=>"https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/9785495/2021/2/1/d05dfcd9-551c-4298-96b1-f559638e362c1612186470220-LOCOMOTIVE-Men-Grey-Sneakers-3871612186469011-2.jpg"})
+ppicture12 = Ppicture.create({:photoURL=>"https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/9785495/2021/2/1/fe468f31-65ba-4885-a63c-7b02f21101801612186470199-LOCOMOTIVE-Men-Grey-Sneakers-3871612186469011-3.jpg"})
+ppicture13 = Ppicture.create({:photoURL=>"https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/9785495/2021/2/1/d40a08bf-6536-4c07-ba36-4f0882d883ff1612186470147-LOCOMOTIVE-Men-Grey-Sneakers-3871612186469011-5.jpg"})
+stock16 = Stock.create({:colour=>"Grey", :size=>"L", :quantity=>100})
+stock17 = Stock.create({:colour=>"Grey", :size=>"M", :quantity=>100})
+stock18 = Stock.create({:colour=>"Grey", :size=>"S", :quantity=>100})
+stock19 = Stock.create({:colour=>"White", :size=>"L", :quantity=>100})
+stock20 = Stock.create({:colour=>"White", :size=>"M", :quantity=>100})
+stock21 = Stock.create({:colour=>"White", :size=>"S", :quantity=>100})
+product5.categories << category1
+product5.categories << category2
+product5.ppictures << ppicture10
+product5.ppictures << ppicture11
+product5.ppictures << ppicture12
+product5.ppictures << ppicture13
+product5.stocks << stock16
+product5.stocks << stock17
+product5.stocks << stock18
+product5.stocks << stock19
+product5.stocks << stock20
+product5.stocks << stock21
+product5.product_tags << product_tag1
+product5.product_tags << product_tag5
+product5.product_tags << product_tag7
+
+product6 = Product.create({:name=>"Solid Thermal Jacket", :price=>87.56, :score=>14})
+ppicture14 = Ppicture.create({:photoURL=>"https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/productimage/2021/3/24/6cdb5ba8-b9cf-482d-add8-cdcc5d127e5f1616577985048-1.jpg"})
+ppicture15 = Ppicture.create({:photoURL=>"https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/productimage/2021/3/24/80e1c223-9695-4479-98e0-854b9206ff231616577985075-2.jpg"})
+ppicture16 = Ppicture.create({:photoURL=>"https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/productimage/2021/3/24/445fd908-0ed8-41ba-85df-1f1743abd82f1616577985095-3.jpg"})
+ppicture17 = Ppicture.create({:photoURL=>"https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/productimage/2021/3/24/89229402-f0e6-43e0-8698-6c24535000af1616577985114-5.jpg"})
+stock22 = Stock.create({:colour=>"Blue", :size=>"L", :quantity=>13})
+stock23 = Stock.create({:colour=>"Blue", :size=>"M", :quantity=>5})
+stock24 = Stock.create({:colour=>"Blue", :size=>"S", :quantity=>21})
+product6.categories << category3
+product6.categories << category4
+product6.ppictures << ppicture14
+product6.ppictures << ppicture15
+product6.ppictures << ppicture16
+product6.ppictures << ppicture17
+product6.stocks << stock22
+product6.stocks << stock23
+product6.stocks << stock24
+product6.product_tags << product_tag3
+product6.product_tags << product_tag5
+
 # puts "Total number of products added: #{Product.all.count}"
 # puts "Product names: #{Product.all.pluck("name")}"
 # puts "Product1: #{product1.name} price: #{product1.price.round(2)}"
@@ -138,3 +183,5 @@ product4.product_tags << product_tag6
 # puts "Stock1: colour: #{stock1.colour} size: #{stock1.colour} quantity: #{stock1.quantity}"
 # puts "Stock2: colour: #{stock2.colour} size: #{stock2.colour} quantity: #{stock2.quantity}"
 # puts "Stock3: colour: #{stock3.colour} size: #{stock3.colour} quantity: #{stock3.quantity}"
+
+puts "-----------------------------------------------------------------------------------------------------"

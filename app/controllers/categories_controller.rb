@@ -12,12 +12,32 @@ class CategoriesController < ApplicationController
       
         Category.find(params[:id]).products.each do |product|
           
+          found = false
+          
           product.product_tags.each do |tag|
             
-            if session[:filters].include? tag.tag 
-              @items.append(product)
+            if session[:filters].include? "COL#{tag.tag}" 
+              found = true
+              break
             end
           end
+        
+          product.stocks.distinct.pluck(:colour).each do |colour|
+            if session[:filters].include? "CLR#{colour}"
+              found = true
+              break
+            end
+          end
+        
+          product.stocks.distinct.pluck(:size).each do |size|
+            if session[:filters].include? "SIZ#{size}"
+              found = true
+              break
+            end
+          end
+          
+          @items.append(product) if found
+          puts @items
         end
         
       else
