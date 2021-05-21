@@ -23,9 +23,11 @@
 
 function checkButton(classname)
 {
+    var name = classname[0].name.slice(3)
+    console.log(name)
     var chkBoxs = document.getElementById(classname[0].name);
         if (chkBoxs.checked){
-            if(classname[0].name == "all"){
+            if(name == "All"){
                 var labels = document.getElementsByClassName("col-btn-label");
                 var checkboxes = document.getElementsByClassName("col-btn");
                 for(let i = 0 ; i < labels.length ; i++){
@@ -33,11 +35,13 @@ function checkButton(classname)
                     toggleState(labels[i],true);
                 }
             }
-            else
-                document.getElementsByName(classname[0].name)[2].className = "btn btn-secondary col-btn-label";
+            else{
+                console.log(document.getElementsByName(name))
+                document.getElementsByName(name)[0].className = "btn btn-secondary col-btn-label";
+            }
         }
         else{
-            if(classname[0].name == "all"){
+            if(name == "All"){
                 var labels = document.getElementsByClassName("col-btn-label");
                 var checkboxes = document.getElementsByClassName("col-btn");
                 for(let i = 0;i < checkboxes.length;i++){
@@ -45,8 +49,10 @@ function checkButton(classname)
                     toggleState(labels[i],false);
                 }
             }
-            else
-                document.getElementsByName(classname[0].name)[2].className = "btn btn-outline-secondary col-btn-label";
+            else{
+                console.log(document.getElementsByName(name))
+                document.getElementsByName(name)[0].className = "btn btn-outline-secondary col-btn-label";
+            }
         }
 }
 
