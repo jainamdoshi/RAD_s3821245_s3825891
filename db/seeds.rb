@@ -111,7 +111,7 @@ product4.product_tags << product_tag5
 product4.product_tags << product_tag6
 
 
-product5 = Product.create({:name=>"LocoMotive Snekers", :price=>69.99, :score=>24})
+product5 = Product.create({:name=>"LocoMotive Sneakers", :price=>69.99, :score=>24})
 ppicture10 = Ppicture.create({:photoURL=>"https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/9785495/2019/6/14/906f1f81-db79-481b-9962-6306abe4a1bf1560500752934-LOCOMOTIVE-Men-Grey-Sneakers-5091560500751016-1.jpg"})
 ppicture11 = Ppicture.create({:photoURL=>"https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/9785495/2021/2/1/d05dfcd9-551c-4298-96b1-f559638e362c1612186470220-LOCOMOTIVE-Men-Grey-Sneakers-3871612186469011-2.jpg"})
 ppicture12 = Ppicture.create({:photoURL=>"https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/9785495/2021/2/1/fe468f31-65ba-4885-a63c-7b02f21101801612186470199-LOCOMOTIVE-Men-Grey-Sneakers-3871612186469011-3.jpg"})

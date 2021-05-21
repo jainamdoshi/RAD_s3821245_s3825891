@@ -1,12 +1,18 @@
-<%= button_to savedlist_path(@currentUserSavedlist.id, product_id: item.id), method: :put, class: "link popular-items" do %>
-    <div class="card" style="width: 18rem;">
-        <img src="<%= item.ppictures.first.photoURL %>" class="card-img-top" alt="...">
-        <div class="card-body" >
-            <h3 class="card-title"><%= item.name %></h3>
-            <h5 class="card-title"><%=  number_to_currency(item.price) %></h5>
+<div class="popular-items-wrapper">
+    <%= link_to product_path(item.id), class: "link popular-items" do %>
+        <div class="card" style="width: 18rem;">
+            <img src="<%= item.ppictures.first.photoURL %>" class="card-img-top" alt="...">
+            <div class="card-body" >
+                <h3 class="card-title"><%= item.name %></h3>
+                <h5 class="card-title"><%=  number_to_currency(item.price) %></h5>
+            </div>
+            <% if item.savedlists.find_by(id: @currentUserSavedlist.id) %>
+                <%= fa_icon "star", class: "savedlist-icon" %>
+            <% end %>
         </div>
-        <% if item.savedlists.find_by(id: @currentUserSavedlist.id) %>
-            <i class="fa fa-star"></i>
-        <% end %>
-    </div>
-<% end %>
+    <% end %>
+    
+    <%= button_to savedlist_path(@currentUserSavedlist.id, product_id: item.id), method: :put, class: "savedlist-btn" do %>
+        <%= fa_icon "plus-circle" %>
+    <% end %>
+</div>
