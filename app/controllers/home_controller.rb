@@ -38,5 +38,4 @@ class HomeController < ApplicationController
     redirect_to user_path(current_user)
   end
   
-  
 end

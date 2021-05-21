@@ -15,11 +15,11 @@ class ApplicationController < ActionController::Base
     
     def current_user
         if !session[:user_id].blank?
-            @current_user ||= User.find(session[:user_id])
+            current_user ||= User.find(session[:user_id])
         else
-            @current_user = nil
+            current_user = nil
         end
-        @current_user
+        current_user
     end
     
     private
@@ -52,5 +52,12 @@ class ApplicationController < ActionController::Base
             end
         end
         return false
+    end
+    
+    def savedlist_merge(user)
+      Savedlist.find(user.savedlist_id) + Savedlist.find(cookies[:savedlist_id])
+      if cookies[:savedlist_id] != user.savedlist_id
+        cookies[:savedlist_id] = user.savedlist_id
+      end
     end
 end

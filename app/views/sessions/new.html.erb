@@ -29,7 +29,7 @@
             <%= button_to "Twitter Login", "/auth/twitter", method: :post, class: "twitterBtn btn btn-primary mt-3" %>
         </div>
         <div class="belowLink d-flex d-block align-items-center justify-content-center pt-3 mt-5 ">
-            <%= link_to "Forgot password?", new_user_path, {class: 'belowLinkText pr-3'} %> 
+            <%= link_to "Forgot password?", users_forget_password_path, {class: 'belowLinkText pr-3'} %> 
             <h2>|</h2>
             <%= link_to "Not a User, Signup here?", new_user_path, {class: 'belowLinkText pl-3'} %>
         </div>

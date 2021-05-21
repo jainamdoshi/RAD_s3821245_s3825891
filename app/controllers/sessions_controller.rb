@@ -42,7 +42,6 @@ class SessionsController < ApplicationController
     end
     session[:user_id] = @user.id
     savedlist_merge(@user)
-    current_user
     redirect_to root_path, success: "Successfully Logged In!"
   end
   
@@ -64,13 +63,6 @@ class SessionsController < ApplicationController
 private
     def user_params
       params.require(:user).permit(:email, :password)
-    end
-    
-    def savedlist_merge(user)
-      Savedlist.find(user.savedlist_id) + Savedlist.find(cookies[:savedlist_id])
-      if cookies[:savedlist_id] != user.savedlist_id
-        cookies[:savedlist_id] = user.savedlist_id
-      end
     end
 
 end

@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :authorization, only: %i[show edit]
   
   def new
+     @user = User.new
   end
   
   def create
@@ -14,12 +15,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       
       # current_user
-      
-      if session[:return_to].blank?
-        redirect_to root_path, success: "Thank you for Signing Up!"
-      else
-        redirect_to session.delete(:return_to), success: "Thank you for Signing Up!"
-      end
+      redirect_to root_path, success: "Thank you for Signing Up!"
     else
       redirect_to new_user_path, danger: "Invalid Username or Password! Please try again."
     end
@@ -53,6 +49,28 @@ class UsersController < ApplicationController
     end
   end
   
+  def forget_password
+    
+  end 
+  
+  def forgetpasswordupdate
+    emailRegex = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+    emailAddress = params[:email]
+    
+    if (emailAddress.match(emailRegex)) && (User.find_by(email: emailAddress))
+        UserNotifierMailer.send_forget_password_email(emailAddress).deliver
+        #TODO put the URI thing here
+        redirect_to root_path, success: "Email sent with forget password link!"
+    else
+      redirect_to users_forget_password_path, danger: "Invalid Email"
+    end
+  end
+  
+  def forgetpassword_edit
+    user = User.find(params[:id])
+    session[:user_id] = user.id
+    savedlist_merge(user)
+  end
   
   private
     def user_params

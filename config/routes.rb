@@ -10,6 +10,12 @@ Rails.application.routes.draw do
   post 'home/newsletter', to: "home#newsletter", as: "home_newsletter"
   put 'home/newsletterupdate', to: "home#newsletterupdate", as: "home_newsletter_update"
   
+  # link clicked
+  get 'users/forgetpassword', to: "users#forget_password", as: "users_forget_password"
+  # users email
+  post 'users/forgetpasswordupdate', to: "users#forgetpasswordupdate", as: "users_forget_password_update"
+  post 'users/forgetpasswordupdate/:id/edit', to: "users#forgetpassword_edit", as: "home_forget_password_update_edit"
+  
   post '/session', to: "sessions#create", as: "sessions"
   
   get '/auth/:provider/callback', to: 'sessions#twittercreate', as: "session_twitter"
