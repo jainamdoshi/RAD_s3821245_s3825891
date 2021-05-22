@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   
   get 'filter/index', to: "filter#index"
   post 'filter/update', to: "filter#update"
+  
+  post 'products/search', to: 'products#search', as: "product_search"
+  get 'products/searched', to: 'products#searched', as: "product_searched"
   # get 'carts/show'
   root 'home#index'
   post 'home/newsletter', to: "home#newsletter", as: "home_newsletter"

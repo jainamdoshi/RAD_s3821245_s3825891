@@ -23,5 +23,4 @@ class FilterController < ApplicationController
     session[:filters] = filters
     redirect_to session.delete(:return_to)
   end
-
 end
