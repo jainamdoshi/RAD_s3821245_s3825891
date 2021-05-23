@@ -1,4 +1,9 @@
 <div class="rating-page main-body">
+    <% flash.each do |name, msg| %>
+        <div class='alert alert-<%= name %>'>
+            <%= msg %>
+        </div>
+    <% end %>
     <div class="d-flex flex-column align-items-center" >
         <h1>Rate Us</h1>
         <h1>Rate your experience with this app...</h1>

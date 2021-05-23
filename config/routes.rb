@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
   
-  get 'rating/index', to: "rating#index"
-  post 'rating/create', to: "rating#create"
-  
   get 'filter/index', to: "filter#index"
   post 'filter/update', to: "filter#update"
   
@@ -45,6 +42,7 @@ Rails.application.routes.draw do
   resources :users, only: %i[new show edit update create]
   resources :carts, only: %i[show update]
   resources :cart_items, only: %i[create]
+  resources :ratings, only: %i[index create]
   resource :session, only: %i[new destroy]
   # get 'savedlists/show'
   # get 'products/index'

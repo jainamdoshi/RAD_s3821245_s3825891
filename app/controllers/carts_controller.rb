@@ -14,7 +14,12 @@
         stock.save
         cart_item.delete
       end
-      redirect_to root_path, success: "You have checked-out. Your items will arrive soon!"
+      
+      if !Rating.find_by(user_id: current_user.id)
+        redirect_to rating_create_path, success: "You have checked-out. Your items will arrive soon!"
+      else
+        redirect_to root_path, success: "You have checked-out. Your items will arrive soon!"
+      end
     end
   
     private
