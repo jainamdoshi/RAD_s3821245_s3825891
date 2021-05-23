@@ -1,77 +1,145 @@
-/*
-  Place all the styles related to the matching controller here.
-  They will automatically be included in application.css.
-*/
+// /*
+//   Place all the styles related to the matching controller here.
+//   They will automatically be included in application.css.
+// */
 
-// .rating-page{
-//   background-color: grey;
-//   height: 70vh;
-// }
-
-.rating-page {
+.rating-container {
+    // display: block;
+    // position: relative;
+    // padding-left: 35px;
+    // margin-bottom: 12px;
+    // cursor: pointer;
+    // font-size: 22px;
+    // -webkit-user-select: none;
+    // -moz-user-select: none;
+    // -ms-user-select: none;
+    // user-select: none;
     
-  div .closebtn {
-    font-size: 4rem;
-    color: black;
-  }
-  height: 70vh;
-  background-color: white;
-  margin-top: 10rem;
-
-  
-  h3 {
-    font-size: 4rem;
-  }
-  
-  h1 {
-    font-size: 5rem;  
-  }
-  
-    // width: 90%;
-    // height: 20vh;
-    form{
-      
-      width: 50vw;
-      
-    .col{
-      width: 40rem;
-      height: 15vh;
-      border: 1px solid #adb5bd;
-
-      // .btn-check {
-      // display: none;  
-      // }
-      
-      .btn {
-      width: 100%;
-      height: 100%;
-      }
-      
-      .d-block .btn {
-      width: 100%;
+    width: 100%;
+    padding: 10%;
+    
+    input {
+        width: 5rem;
+        height: 5rem;
     }
+    
+    .rating-option {
+        padding-left: 3rem;
+        font-size: 8rem;
     }
-    background-color: #dee2e6;
     
-    // .col {
-    //   padding: 4rem;
-    //   // min-width: 5rem;
-    //   border: 1px solid #adb5bd;
+    button {
+        width: 100%;
+        font-size: 8rem;
+    }
+    
+    // .checkmark {
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     height: 25px;
+    //     width: 25px;
+    //     background-color: #eee;
+    //     border-radius: 50%;
     // }
     
-    // .form {
-    // .btn-check {
-    //   display: none;  
+    // input:checked ~ .checkmark {
+    //   background-color: #2196F3;
     // }
     
-    // .btn {
-    //   font-size: 5rem;
+    // .checkmark:after {
+    //   content: "";
+    //   position: absolute;
+    //   display: none;
     // }
     
-    // .
-  // }
-  }
-
-
-  
+    // input:checked ~ .checkmark:after {
+    //     display: block;
+    // }
+    
+    // .checkmark:after {
+    //  	top: 9px;
+    // 	left: 9px;
+    // 	width: 8px;
+    // 	height: 8px;
+    // 	border-radius: 50%;
+    // 	background: white;
+    // }
+    
+    
 }
+
+
+
+// // .rating-page{
+// //   background-color: grey;
+// //   height: 70vh;
+// // }
+
+// .rating-page {
+    
+//   div .closebtn {
+//     font-size: 4rem;
+//     color: black;
+//   }
+//   height: 70vh;
+//   background-color: white;
+//   margin-top: 10rem;
+
+  
+//   h3 {
+//     font-size: 4rem;
+//   }
+  
+//   h1 {
+//     font-size: 5rem;  
+//   }
+  
+//     // width: 90%;
+//     // height: 20vh;
+//     form{
+      
+//       width: 50vw;
+      
+//     .col{
+//       width: 40rem;
+//       height: 15vh;
+//       border: 1px solid #adb5bd;
+
+//       // .btn-check {
+//       // display: none;  
+//       // }
+      
+//       .btn {
+//       width: 100%;
+//       height: 100%;
+//       }
+      
+//       .d-block .btn {
+//       width: 100%;
+//     }
+//     }
+//     background-color: #dee2e6;
+    
+//     // .col {
+//     //   padding: 4rem;
+//     //   // min-width: 5rem;
+//     //   border: 1px solid #adb5bd;
+//     // }
+    
+//     // .form {
+//     // .btn-check {
+//     //   display: none;  
+//     // }
+    
+//     // .btn {
+//     //   font-size: 5rem;
+//     // }
+    
+//     // .
+//   // }
+//   }
+
+
+  
+// }
