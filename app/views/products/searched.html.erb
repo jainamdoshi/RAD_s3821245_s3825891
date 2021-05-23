@@ -1,0 +1,10 @@
+<div class="main-body">
+    
+    <% if @products %>
+        <div class="d-flex flex-row flex-wrap justify-content-around">
+            <% @products.each do |product| %>
+                <%= render "products/product", item: product %>
+            <% end %>
+        </div>
+    <% end %>
+</div>
