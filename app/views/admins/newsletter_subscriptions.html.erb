@@ -1,0 +1,10 @@
+<div class="main-body">
+    <h1>NewsLetter Subscriptions</h1>
+    <% @users.each do |user| %>
+        <% if Newsletter.find_by(email: user.email) %>
+            <h3><%= user.name %> <%= fa_icon "check-circle" %></h3>
+        <% else %>
+            <h3><%= user.name %> <%= fa_icon "times-circle" %></h3>
+        <% end %>
+    <% end %>
+</div>

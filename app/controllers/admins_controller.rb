@@ -10,9 +10,14 @@ class AdminsController < UsersController
     end
     
     def ratings_summary
+      @ratings = {}
+      Rating.distinct.pluck(:rate).each do |rateValue|
+      @ratings[rateValue] = Rating.where(:rate => rateValue).count
+      end
     end
     
     def newsletter_subscriptions
+      @users = User.all
     end
     
     private
