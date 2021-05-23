@@ -1,7 +1,11 @@
 require 'test_helper'
 
 class NewsletterTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def setup
+    @newsletter = Newsletter.new(email: "customer@myapp.com")
+  end
+  
+  test "should be valid" do
+    assert @newsletter.valid?
+  end
 end
