@@ -12,7 +12,7 @@
         stock = Stock.find(cart_item.stock_id)
         stock.quantity -= cart_item.quantity
         stock.save
-        cart_item.delete
+        Checkout.create(cart_items_id: cart_item.id, user_id: current_user.id, purchased_time: DateTime.now)
       end
       
       if !Rating.find_by(user_id: current_user.id)

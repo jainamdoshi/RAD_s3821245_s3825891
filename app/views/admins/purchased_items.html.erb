@@ -1,0 +1,23 @@
+<div class="main-body">
+    <h1>Checkout Items summary</h1>
+    <div>
+        <% @checkout_items.distinct.pluck(:user_id).each do |user_id| %>
+            
+            <div class="d-flex flex-row flex-wrap justify-content-around">
+                <% get_user_items(user_id).each do |items| %>
+                    <div class="popular-items-wrapper">
+                        <%= link_to product_path(items.get_checkout_item_detail.product_id), class: "link popular-items" do %>
+                            <div class="card" style="width: 18rem;">
+                                <img src="<%= items.get_checkout_item_detail.ppictures.first.photoURL %>" class="card-img-top" alt="...">
+                                <div class="card-body" >
+                                    <h3 class="card-title"><%= items.get_checkout_item_detail.name %></h3>
+                                    <h5 class="card-title"><%=  number_to_currency(items.get_checkout_item_detail.price) %></h5>
+                                </div>
+                            </div>
+                        <% end %>
+                    </div>
+                <% end %>
+            </div>
+        <% end %>
+    </div>
+</div>

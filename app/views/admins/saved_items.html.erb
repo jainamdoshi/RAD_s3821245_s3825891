@@ -3,18 +3,22 @@
     <% @users.each do |user| %>
     <h3><%= user.name %></h3>
         <div class="d-flex flex-row flex-wrap justify-content-around">
-            <% user.get_saved_list_items.each do |product| %>
-                <div class="popular-items-wrapper">
-                    <%= link_to product_path(product.id), class: "link popular-items" do %>
-                        <div class="card" style="width: 18rem;">
-                            <img src="<%= product.ppictures.first.photoURL %>" class="card-img-top" alt="...">
-                            <div class="card-body" >
-                                <h3 class="card-title"><%= product.name %></h3>
-                                <h5 class="card-title"><%=  number_to_currency(product.price) %></h5>
+            <% if user.get_saved_list_items.count > 0 %>
+                <% user.get_saved_list_items.each do |product| %>
+                    <div class="popular-items-wrapper">
+                        <%= link_to product_path(product.id), class: "link popular-items" do %>
+                            <div class="card" style="width: 18rem;">
+                                <img src="<%= product.ppictures.first.photoURL %>" class="card-img-top" alt="...">
+                                <div class="card-body" >
+                                    <h3 class="card-title"><%= product.name %></h3>
+                                    <h5 class="card-title"><%=  number_to_currency(product.price) %></h5>
+                                </div>
                             </div>
-                        </div>
-                    <% end %>
-                </div>
+                        <% end %>
+                    </div>
+                <% end %>
+            <% else %>
+                <h3>No Items present in Saved List</h3>
             <% end %>
         </div>
     <% end %>

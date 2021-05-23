@@ -7,6 +7,7 @@ class AdminsController < UsersController
     end
     
     def purchased_items
+      @checkout_items = Checkout.all
     end
     
     def ratings_summary
