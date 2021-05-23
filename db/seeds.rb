@@ -14,6 +14,11 @@ Savedlist.destroy_all
 Cart.destroy_all
 User.destroy_all
 ProductTag.destroy_all
+CartItem.destroy_all
+Rating.destroy_all
+Newsletter.destroy_all
+Checkout.destroy_all
+
 
 savedlist1 = Savedlist.create()
 cart1 = Cart.create()
