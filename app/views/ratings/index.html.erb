@@ -1,0 +1,43 @@
+<div class="rating-page main-body">
+    <% flash.each do |name, msg| %>
+        <div class='alert alert-<%= name %>'>
+            <%= msg %>
+        </div>
+    <% end %>
+    <div class="d-flex flex-column align-items-center" >
+        <h1>Rate Us</h1>
+        <h1>Rate your experience with this app...</h1>
+    </div>
+    <div class="d-flex rating-box p-4">
+        <%= form_with url: ratings_path, method: :post, class: "d-flex flex-column flex-wrap rating-container" do |form| %>
+            
+            <div>
+                <%= form.radio_button :rate, "SO BAD", class: "checkmark" %> 
+                <span class="rating-option">
+                    So Bad
+                </span>
+            </div>
+             <div>
+                <%= form.radio_button :rate, "GOOD", class: "checkmark" %>
+                <span class="rating-option">
+                    GOOD
+                </span>
+            </div>
+             <div>
+                <%= form.radio_button :rate, "OKAY", class: "checkmark" %>
+                <span class="rating-option">
+                    OKAY
+                </span>
+            </div>
+             <div>
+                <%= form.radio_button :rate, "AMAZING", class: "checkmark" %>
+                <span class="rating-option">
+                    AMAZING
+                </span>
+            </div>
+            <div class="d-block">
+                <%= form.button "Submit", class: "btn btn-secondary" %>
+            </div>
+        <% end %>
+    </div>
+</div>
