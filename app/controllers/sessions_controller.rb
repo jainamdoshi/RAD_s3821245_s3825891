@@ -1,4 +1,8 @@
 class SessionsController < ApplicationController
+  
+  before_action :is_logged_in, only: [:new, :create]
+  
+  
   def new
     @user = User.new
   end
@@ -65,4 +69,7 @@ private
       params.require(:user).permit(:email, :password)
     end
 
+    def is_logged_in
+      redirect_to root_path if !session[:user_id].blank?
+    end
 end
