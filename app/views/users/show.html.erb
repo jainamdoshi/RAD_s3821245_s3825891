@@ -28,6 +28,33 @@
                     <h1>Turn <%= @newsletterTurnedOn ? "off" : "on" %> Subscription</h1>
                 <% end %>
             </li>
+            <% if current_user.admin %>
+            <li>
+                <%= link_to admins_saved_items_path, class: "link d-flex flex-row" do %>
+                    <%= fa_icon "bookmark" %>
+                    <h1>Saved Items Summary</h1>
+                <% end %>
+            </li>
+            <li>
+                <%= link_to admins_purchased_items_path, class: "link d-flex flex-row" do %>
+                    <%= fa_icon "shopping-cart" %>
+                    <h1>Purchased Items Summary</h1>
+                <% end %>
+            </li>
+            <li>
+                <%= link_to admins_ratings_summary_path, class: "link d-flex flex-row" do %>
+                    <%= fa_icon "star" %>
+                    <h1>Ratings Summary</h1>
+                <% end %>
+            </li>
+            <li>
+                <%= link_to admins_newsletter_subscriptions_path, class: "link d-flex flex-row" do %>
+                    <%= fa_icon "envelope" %>
+                    <h1>Newsletter Subscriptions</h1>
+                <% end %>
+            </li>
+            
+            <% end %>
             <li>
                 <%= button_to session_path, method: :delete, class: "link d-flex flex-row" do %>
                     <%= fa_icon "sign-out" %>

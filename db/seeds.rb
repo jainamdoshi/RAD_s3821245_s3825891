@@ -17,7 +17,13 @@ ProductTag.destroy_all
 
 savedlist1 = Savedlist.create()
 cart1 = Cart.create()
-radUser = User.create({:name=>"RAD", :email=>"rad2021rmit@gmail.com", :password=>"Rails2021", :password_confirmation=>"Rails2021", :cart_id=>cart1.id, :savedlist_id=>savedlist1.id})
+
+adminUser = User.create!({:name=>"RADAdmin", :email=>"admin@admin.com", :password=>"Rails2021", :password_confirmation=>"Rails2021", :cart_id=>cart1.id, :savedlist_id=>savedlist1.id, :admin => true})
+
+savedlist2 = Savedlist.create()
+cart2 = Cart.create()
+
+radUser = User.create({:name=>"RAD", :email=>"rad2021rmit@gmail.com", :password=>"Rails2021", :password_confirmation=>"Rails2021", :cart_id=>cart2.id, :savedlist_id=>savedlist2.id})
 
 category1 = Category.create({:name=>"Men"})
 category2 = Category.create({:name=>"Women"})

@@ -140,6 +140,10 @@ header {
     list-style-type: none;
     width: 100%;
     
+    .file_field{
+      display: none;
+    }
+    
     .option {
       flex-grow: 4;
       height: 100%;

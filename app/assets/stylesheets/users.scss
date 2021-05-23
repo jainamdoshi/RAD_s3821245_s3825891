@@ -69,18 +69,20 @@ div.signupPage {
 
 .user-options {
     
+    padding-bottom: 15rem;
+    
     ul {
         list-style: none;
         
         li {
-            padding: 2rem 0;
+            padding: 1.5rem 0;
             i {
-                font-size: 7rem;
+                font-size: 6rem;
             }
             
             h1 {
                 margin-left: 2rem;
-                font-size: 5rem;
+                font-size: 4rem;
             }
         }
     }

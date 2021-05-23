@@ -23,6 +23,11 @@ Rails.application.routes.draw do
   post '/session', to: "sessions#create", as: "sessions"
   
   get '/auth/:provider/callback', to: 'sessions#twittercreate', as: "session_twitter"
+  
+  get 'admins/saved_items', to: "admins#saved_items", as: "admins_saved_items"
+  get 'admins/purchased_items', to: "admins#purchased_items", as: "admins_purchased_items"
+  get 'admins/ratings_summary', to: "admins#ratings_summary", as: "admins_ratings_summary"
+  get 'admins/newsletter_subscriptions', to: "admins#newsletter_subscriptions", as: "admins_newsletter_subscriptions"
   # get 'categories/:id', to: "categories#show", as: "category"
   # get 'products/index', to: 'products#index'
   

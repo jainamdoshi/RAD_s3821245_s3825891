@@ -7,10 +7,14 @@
             <% end %>
         </li>
         <li class="option d-flex justify-content-around align-items-center">
-            <%= link_to root_path, class: "link d-flex flex-column justify-content-center align-items-center" do %>
-                <%= fa_icon "barcode", class: "option-icon" %>
-                <p class="option-title">Scan</p>
+            <%= form_with url: scan_images_path do |form| %>
+                <%= form.file_field :picture, class: "file_field" %>
+                <%= form.label :picture, class: "link d-flex flex-column justify-content-center align-items-center" do %>
+                    <%= fa_icon "barcode", class: "option-icon" %>
+                    <p class="option-title">Scan</p>
+                <% end %>
             <% end %>
+            
         </li>
         <li class="option d-flex justify-content-around align-items-center">
             <%= link_to savedlist_path(@currentUserSavedlist.id), class: "link d-flex flex-column justify-content-center align-items-center" do %>

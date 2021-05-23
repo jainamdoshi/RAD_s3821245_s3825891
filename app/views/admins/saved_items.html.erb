@@ -1,0 +1,11 @@
+<div class="main-body">
+    <h1>SAVED ITEMS SUMMARY</h1>
+    <% @users.each do |user| %>
+    <h3><%= user.name %></h3>
+        <div class="d-flex flex-row flex-wrap justify-content-around">
+        <% user.get_saved_list_items.each do |product| %>
+        <%= render "products/product",item: product %>
+        <% end %>
+        </div>
+    <% end %>
+</div>
