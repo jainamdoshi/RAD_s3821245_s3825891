@@ -8,4 +8,8 @@ module UsersHelper
         Checkout.where(:user_id => userID)
     end
     
+    def get_user_from_user_id(user_id)
+        User.find(user_id)
+    end
+    
 end

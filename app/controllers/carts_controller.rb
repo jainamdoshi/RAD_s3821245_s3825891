@@ -14,9 +14,11 @@
         stock.save
         Checkout.create(cart_items_id: cart_item.id, user_id: current_user.id, purchased_time: DateTime.now)
       end
+        cart.cart_items.delete_all
+        cart.save
       
       if !Rating.find_by(user_id: current_user.id)
-        redirect_to rating_create_path, success: "You have checked-out. Your items will arrive soon!"
+        redirect_to ratings_path, success: "You have checked-out. Your items will arrive soon!"
       else
         redirect_to root_path, success: "You have checked-out. Your items will arrive soon!"
       end

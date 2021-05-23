@@ -2,16 +2,18 @@
     <h1>Checkout Items summary</h1>
     <div>
         <% @checkout_items.distinct.pluck(:user_id).each do |user_id| %>
-            
+            <h3><%= get_user_from_user_id(user_id).name %></h3>
             <div class="d-flex flex-row flex-wrap justify-content-around">
-                <% get_user_items(user_id).each do |items| %>
+                <% get_user_items(user_id).each do |item| %>
+                    <% product = item.getProducts %>
                     <div class="popular-items-wrapper">
-                        <%= link_to product_path(items.get_checkout_item_detail.product_id), class: "link popular-items" do %>
+                        <%= link_to product_path(product.id), class: "link popular-items" do %>
                             <div class="card" style="width: 18rem;">
-                                <img src="<%= items.get_checkout_item_detail.ppictures.first.photoURL %>" class="card-img-top" alt="...">
+                                <img src="<%= product.ppictures.first.photoURL %>" class="card-img-top" alt="...">
                                 <div class="card-body" >
-                                    <h3 class="card-title"><%= items.get_checkout_item_detail.name %></h3>
-                                    <h5 class="card-title"><%=  number_to_currency(items.get_checkout_item_detail.price) %></h5>
+                                    <h3 class="card-title"><%= product.name %></h3>
+                                    <h5 class="card-title"><%=  number_to_currency(product.price) %></h5>
+                                    <h5 class="card-title">Quantities: <%= item.getQuantity %></h5>
                                 </div>
                             </div>
                         <% end %>

@@ -41,7 +41,7 @@ class ApplicationController < ActionController::Base
         stock = Stock.find_by(product_id: productId, colour: colourP, size: sizeP)
         # stock = Stock.find_by(product_id, colour, size)
         if stock && stock.quantity >= itemQuantityP.to_i
-            cart_item = CartItem.new(stock_id: stock.id, quantity: itemQuantityP.to_i)
+            cart_item = CartItem.new(product_id: productId, stock_id: stock.id, quantity: itemQuantityP.to_i)
             if cart_item.save
                 cart = Cart.find(current_user().cart_id)
                 cart.cart_items << cart_item

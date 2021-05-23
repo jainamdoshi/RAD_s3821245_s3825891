@@ -6,7 +6,8 @@ class CartItemsController < ApplicationController
         puts "Reached here --------------"
         # stock = Stock.find_by(product_id: params[:product_id], colour: params[:colour], size: params[:size])
         # if stock && stock.quantity >= params[:itemQuantity].to_i
-        if add_items_to_cart(params[:product_id], params[:size], params[:colour], params[:itemQuantity])
+        puts params[:product_id]
+        if add_items_to_cart(params[:product_id].to_i, params[:size], params[:colour], params[:itemQuantity])
         #     cart_item = CartItem.new(stock_id: stock.id, quantity: params[:itemQuantity].to_i)
         #     if cart_item.save
         #         cart = Cart.find(current_user().cart_id)
